@@ -5,15 +5,23 @@ const headers = { "Content-Type":"application/json"}
 export function login(username, password){
   return (dispatch) => {
     fetch(API_URL + "/sessions", {
-      headers: headers,
+      method: "POST"
+      headers: {
+        "Content-Type":"application/json",
+        Accept: "application/json"
+      },
       body: JSON.stringify({username, password})
     })
     .then(res=>res.json())
     .then(userData=>{
-      dispatch({
-        type: "LOGIN_USER",
-        payload: userData
-      })
+      dispatch(loginUser(userData))
     })
+  }
+}
+
+export function loginUser(userData) {
+  return {
+    type: "LOGIN_USER",
+    payload: userData
   }
 }
