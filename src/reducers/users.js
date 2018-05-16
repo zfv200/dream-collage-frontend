@@ -4,7 +4,13 @@ const defaultState = {
   currentActivity: null,
   dreams: [
     {
+      id: "1",
       content: "dream1",
+      collage: "fakeurl"
+    },
+    {
+      id: "2",
+      content: "dream2",
       collage: "fakeurl"
     }
   ]
