@@ -1,4 +1,7 @@
 import React from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { login } from '../actions/actions'
 
 class AuthForm extends React.Component{
   state = {
@@ -7,8 +10,8 @@ class AuthForm extends React.Component{
     errors: []
   }
 
-  login = (event) => {
-    event.preventDefault()
+  handleSubmit = (event) => {
+    this.props.login(this.state.username, this.state.password)
   }
 
   onChange = (event) => {
@@ -26,11 +29,10 @@ class AuthForm extends React.Component{
   }
 
   render(){
-    console.log(this.state)
     return (
         <div className="login-form">
           {this.state.errors.length > 0 ? this.errors() : null}
-          <form onSubmit={this.login}>
+          <form onSubmit={this.handleSubmit}>
             <input
               name="username"
               value={this.state.username}
@@ -49,4 +51,10 @@ class AuthForm extends React.Component{
   }
 }
 
-export default AuthForm
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+    login
+  }, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(AuthForm)

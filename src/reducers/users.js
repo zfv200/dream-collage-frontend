@@ -1,7 +1,13 @@
 const defaultState = {
-  currentUser: null,
+  currentUser: "zach",
   loggedIn: false,
-  dreams: []
+  currentActivity: null,
+  dreams: [
+    {
+      content: "dream1",
+      collage: "fakeurl"
+    }
+  ]
 }
 
 export default function userReducer(state=defaultState, action){
