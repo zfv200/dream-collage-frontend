@@ -7,17 +7,30 @@ class AuthForm extends React.Component{
     errors: []
   }
 
+  login = (event) => {
+    event.preventDefault()
+  }
+
   onChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  errors() {
+    return (
+      <ul>
+        {this.state.errors.map(error=><li>{error}</li>)}
+      </ul>
+    )
+  }
+
   render(){
     console.log(this.state)
     return (
-        <div>
-          <form>
+        <div className="login-form">
+          {this.state.errors.length > 0 ? this.errors() : null}
+          <form onSubmit={this.login}>
             <input
               name="username"
               value={this.state.username}
