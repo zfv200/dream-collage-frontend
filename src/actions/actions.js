@@ -25,3 +25,17 @@ export function loginUser(userData) {
     payload: userData
   }
 }
+
+export function addDream(dreamData) {
+  return {
+    type: "ADD_DREAM",
+    payload: dreamData
+  }
+}
+
+export function startCollage(){
+  return {
+    type: "START_COLLAGE",
+    payload: true
+  }
+}

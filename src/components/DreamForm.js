@@ -1,10 +1,14 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { addDream } from '../actions/actions'
+import { startCollage } from '../actions/actions'
 
 class DreamForm extends React.Component{
   state = {
     content: "",
     adjectives: "",
-    mood: ""
+    mood: "",
+    collageUrl: "",
   }
 
   handleChange = (event) => {
@@ -13,10 +17,16 @@ class DreamForm extends React.Component{
     })
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.addDream(this.state)
+    this.props.startCollage()
+  }
+
   render(){
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <textarea
           onChange={this.handleChange}
           name="content"
@@ -29,11 +39,12 @@ class DreamForm extends React.Component{
           onChange={this.handleChange}
           name="mood"
           /><br/>
-          <button>Add Dream</button>
+          <button>Study Dream</button>
         </form>
       </div>
     )
   }
 }
 
-export default DreamForm
+
+export default connect(null, {addDream, startCollage})(DreamForm)

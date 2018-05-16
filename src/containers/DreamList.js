@@ -22,7 +22,7 @@ class DreamList extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    dreams: state.userReducer.dreams
+    dreams: state.dreamReducer.dreams
   }
 }
 
