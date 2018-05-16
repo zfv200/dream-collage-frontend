@@ -5,7 +5,7 @@ class CollageContainer extends React.Component{
   render(){
     return (
       <div>
-        collage container
+        <button>Save Collage</button>
       </div>
     )
   }
