@@ -8,8 +8,9 @@ import thunk from 'redux-thunk'
 import {Provider} from 'react-redux'
 import userReducer from './reducers/users'
 import dreamReducer from './reducers/dreams'
+import collageReducer from './reducers/collages'
 
-const rootReducer = combineReducers({userReducer, dreamReducer})
+const rootReducer = combineReducers({userReducer, dreamReducer, collageReducer})
 
 const store = createStore(rootReducer, applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 

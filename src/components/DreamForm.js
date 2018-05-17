@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addDream } from '../actions/actions'
 import { startCollage } from '../actions/actions'
+import { addKeywords } from '../actions/actions'
 ////to do starting tomorrow: change the collage component to be
 //conditionally rendered here, so that you can set the state to the full collage
 //url when it's all done and add the dream to the store
@@ -22,7 +23,7 @@ class DreamForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.addDream(this.state)
+    this.props.addKeywords(this.state)
     this.props.startCollage()
   }
 
@@ -50,4 +51,4 @@ class DreamForm extends React.Component{
 }
 
 
-export default connect(null, {addDream, startCollage})(DreamForm)
+export default connect(null, {addDream, startCollage, addKeywords})(DreamForm)

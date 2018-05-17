@@ -3,20 +3,20 @@ const headers = { "Content-Type":"application/json"}
 
 //login form action:
 export function login(username){
-  // return (dispatch) => {
-  //   fetch(API_URL + "/sessions", {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type":"application/json",
-  //       Accept: "application/json"
-  //     },
-  //     body: JSON.stringify({username, password})
-  //   })
-  //   .then(res=>res.json())
-  //   .then(userData=>{
-  //     dispatch(loginUser(userData))
-  //   })
-  // }
+//   return (dispatch) => {
+//     fetch(API_URL + "/sessions", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type":"application/json",
+//         Accept: "application/json"
+//       },
+//       body: JSON.stringify({username, password})
+//     })
+//     .then(res=>res.json())
+//     .then(userData=>{
+//       dispatch(loginUser(userData))
+//     })
+//   }
 }
 
 export function loginUser(userData) {
@@ -44,5 +44,21 @@ export function startDreaming(){
   return {
     type: "BEGIN_DREAMING",
     payload: true
+  }
+}
+
+export function addKeywords(formState){
+  return {
+    type: "ADD_KEYWORDS",
+    content: formState.content,
+    adjectives: formState.adjectives,
+    mood: formState.mood
+  }
+}
+
+export function addAnalysis(text){
+  return {
+    type: "ADD_ANALYSIS",
+    payload: text
   }
 }
