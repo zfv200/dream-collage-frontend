@@ -8,7 +8,7 @@ export function imageSearch(phrase){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'730c349bb4ae4c4583441d1dc1e628a2'
+        'Ocp-Apim-Subscription-Key':'derp'
       },
       method: 'get'
     })
@@ -23,7 +23,7 @@ export function analysisSearch(content){
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
-        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
+        'X-RosetteAPI-Key':'derp',
         'Content-Type':'application/json',
         'Accept':'application/json',
       },
