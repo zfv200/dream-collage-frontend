@@ -5,23 +5,14 @@ import AddDream from '../components/AddDream'
 import DreamJournal from './DreamJournal'
 
 class HomeContainer extends React.Component{
-  state = {
-    dreaming: false
-  }
-
-  changeToDreaming = () => {
-    this.setState({
-      dreaming: true
-    })
-  }
 
   render(){
     return (
       <div>
-        {!this.state.dreaming ?
+        {!this.props.dreaming ?
           <div>
             <DreamList />
-            <AddDream changeToDreaming={this.changeToDreaming}/>
+            <AddDream />
           </div>
           : <DreamJournal /> }
       </div>
@@ -31,8 +22,9 @@ class HomeContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    currentActivity: state.currentActivity
+    dreaming: state.userReducer.dreaming
   }
 }
+
 
 export default connect(mapStateToProps)(HomeContainer)

@@ -1,14 +1,12 @@
 import React from 'react'
+import { startDreaming } from '../actions/actions'
+import { connect } from 'react-redux'
 
 const AddDream = (props) => {
 
-  const handleClick = () => {
-    props.changeToDreaming()
-  }
-
   return (
-    <button onClick={handleClick}>add dream</button>
+    <button onClick={()=>props.startDreaming()}>add dream</button>
   )
 }
 
-export default AddDream
+export default connect(null, {startDreaming})(AddDream)

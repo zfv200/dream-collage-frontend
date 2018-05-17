@@ -39,3 +39,10 @@ export function startCollage(){
     payload: true
   }
 }
+
+export function startDreaming(){
+  return {
+    type: "BEGIN_DREAMING",
+    payload: true
+  }
+}
