@@ -37,11 +37,11 @@ class CollageContainer extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    if (nextProps.analyzedContent){
-      nextProps.analyzedContent.keyphrases.map(entry=>{
+    nextProps.analyzedContent.keyphrases.map(entry=>{
+      if (this.props.images <= this.props.analyzedContent.length) {
         this.props.imageSearch(entry.phrase)
-      })
-    }
+      }
+    })
   }
 
   render(){
@@ -58,7 +58,8 @@ const mapStateToProps = (state) => {
     content: state.collageReducer.content,
     adjectives: state.collageReducer.adjectives,
     mood: state.collageReducer.mood,
-    analyzedContent: state.collageReducer.rosetteRes
+    analyzedContent: state.collageReducer.rosetteRes,
+    images: state.collageReducer.images
   }
 }
 
