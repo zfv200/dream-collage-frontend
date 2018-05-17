@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addAnalysis } from '../actions/actions'
 import { addImage, imageSearch, analysisSearch } from '../actions/actions'
+import ImageList from './ImageList'
 
 import Api from 'rosette-api'
 
@@ -14,16 +15,16 @@ class CollageContainer extends React.Component{
 
   componentWillReceiveProps(nextProps){
     nextProps.analyzedContent.keyphrases.map(entry=>{
-      if (this.props.images <= this.props.analyzedContent.length) {
+      if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
         this.props.imageSearch(entry.phrase)
       }
     })
   }
 
   render(){
-    console.log(this.props.images)
     return (
       <div>
+        <ImageList />
         <button>Save Collage</button>
       </div>
     )
