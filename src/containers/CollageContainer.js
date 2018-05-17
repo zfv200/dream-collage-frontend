@@ -1,18 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addAnalysis } from '../actions/actions'
-import { response_handler, bing_image_search } from '../actions/bingSearch'
 import { addImage, imageSearch, analysisSearch } from '../actions/actions'
 
 import Api from 'rosette-api'
 
 
 class CollageContainer extends React.Component{
-  constructor(){
-    super();
-    this.api = new Api('027a59c5132d1fd52eedf6e798f52645');
-    this.endpoint = "topics"
-  }
 
   componentDidMount(){
     this.props.analysisSearch(this.props.content)
@@ -27,6 +21,7 @@ class CollageContainer extends React.Component{
   }
 
   render(){
+    console.log(this.props.images)
     return (
       <div>
         <button>Save Collage</button>
