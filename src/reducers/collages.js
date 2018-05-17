@@ -10,7 +10,7 @@ export default function collageReducer(state=defaultState, action){
     case "ADD_KEYWORDS":
       return {...state, content: action.content, adjectives: action.adjectives, mood: action.mood}
     case "ADD_ANALYSIS":
-      return {...state, rosetteRes: action.payload}
+      return {rosetteRes: action.payload}
     default:
       return state
   }

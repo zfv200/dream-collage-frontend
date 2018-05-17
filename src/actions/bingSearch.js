@@ -2,8 +2,7 @@ let https = require('https');
 let subscriptionKey = '730c349bb4ae4c4583441d1dc1e628a2'
 let host = 'api.cognitive.microsoft.com';
 let path = '/bing/v7.0/images/search';
-//hardcode
-let term = 'puppies';
+
 
 export function response_handler(response){
   let body = '';
@@ -13,7 +12,7 @@ export function response_handler(response){
   response.on('end', function () {
     body = JSON.parse(body)
 
-    console.log(body.value[0]['contentUrl'])
+    return body.value[0]['contentUrl']
   })
 }
 

@@ -22,8 +22,12 @@ class CollageContainer extends React.Component{
       method: "POST",
       body: JSON.stringify({"content":this.props.content})
     }).then(res=>res.json()).then(json=>{
-      console.log(json['keyphrases'])
-      
+      if (json['keyphrases'].length > 0){
+        this.props.addAnalysis(json)
+        json['keyphrases'].map(keyphrase=>{
+          bing_image_search(keyphrase.phrase)
+        })
+      }
     })
   }
 
