@@ -1,5 +1,5 @@
-const API_URL = "http://localhost:3000/api/v1"
-const headers = { "Content-Type":"application/json"}
+// const API_URL = "http://localhost:3000/api/v1"
+// const headers = { "Content-Type":"application/json"}
 
 
 export function imageSearch(phrase){
@@ -14,7 +14,6 @@ export function imageSearch(phrase){
     })
     .then(res=>res.json())
     .then(json=>{
-      debugger;
       dispatch(addImage(json.value[0]['contentUrl']))
     })
   }

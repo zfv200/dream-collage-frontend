@@ -4,13 +4,13 @@ import PhotoCropper from './PhotoCropper'
 
 const imageList = (props) => {
 
-  const renderCrops = props.images.map(image=>{
+  const renderPhotos = props.images.map(image=>{
     return <PhotoCropper image={image}/>
   })
 
     return (
       <div>
-        {renderCrops}
+        {renderPhotos}
       </div>
     )
 }

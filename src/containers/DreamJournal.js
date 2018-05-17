@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import DreamForm from '../components/DreamForm'
-import CollageContainer from './CollageContainer'
+import CropperContainer from './CropperContainer'
 
 class DreamJournal extends React.Component{
 
@@ -9,7 +9,7 @@ class DreamJournal extends React.Component{
     return (
       <div>
         {this.props.collaging ?
-        <CollageContainer /> :
+        <CropperContainer /> :
         <DreamForm handleFinish={this.handleFinish}/> }
       </div>
     )
