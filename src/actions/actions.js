@@ -1,23 +1,6 @@
 const API_URL = "http://localhost:3000/api/v1"
 const headers = { "Content-Type":"application/json"}
 
-//login form action:
-export function login(username){
-//   return (dispatch) => {
-//     fetch(API_URL + "/sessions", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type":"application/json",
-//         Accept: "application/json"
-//       },
-//       body: JSON.stringify({username, password})
-//     })
-//     .then(res=>res.json())
-//     .then(userData=>{
-//       dispatch(loginUser(userData))
-//     })
-//   }
-}
 
 export function imageSearch(phrase){
   return (dispatch) => {
@@ -25,7 +8,7 @@ export function imageSearch(phrase){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'730c349bb4ae4c4583441d1dc1e628a2'
+        'Ocp-Apim-Subscription-Key':'derp'
       },
       method: 'get'
     })
@@ -40,7 +23,7 @@ export function analysisSearch(content){
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
-        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
+        'X-RosetteAPI-Key':'derp',
         'Content-Type':'application/json',
         'Accept':'application/json',
       },
@@ -53,14 +36,6 @@ export function analysisSearch(content){
         dispatch(addAnalysis(json))
       }
     })
-  }
-}
-
-
-export function loginUser(userData) {
-  return {
-    type: "LOGIN_USER",
-    payload: userData
   }
 }
 

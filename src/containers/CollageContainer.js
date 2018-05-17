@@ -16,24 +16,6 @@ class CollageContainer extends React.Component{
 
   componentDidMount(){
     this.props.analysisSearch(this.props.content)
-    // this.props.analysisSearch(this.props.content)
-    // // fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
-    // //   headers: {
-    // //     'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
-    // //     'Content-Type':'application/json',
-    // //     'Accept':'application/json',
-    // //   },
-    // //   method: "POST",
-    // //   body: JSON.stringify({"content":this.props.content})
-    // // }).then(res=>res.json()).then(json=>{
-    // //   if (json['keyphrases'].length > 0){
-    // //     this.props.addAnalysis(json)
-    // //     json['keyphrases'].map(keyphrase=>{
-    // //       debugger;
-    // //       this.props.imageSearch(keyphrase.phrase)
-    // //     })
-    // //   }
-    // // })
   }
 
   componentWillReceiveProps(nextProps){

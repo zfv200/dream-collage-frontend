@@ -3,9 +3,6 @@ import { connect } from 'react-redux'
 import { addDream } from '../actions/actions'
 import { startCollage } from '../actions/actions'
 import { addKeywords } from '../actions/actions'
-////to do starting tomorrow: change the collage component to be
-//conditionally rendered here, so that you can set the state to the full collage
-//url when it's all done and add the dream to the store
 
 class DreamForm extends React.Component{
   state = {
