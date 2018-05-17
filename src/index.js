@@ -12,7 +12,7 @@ import collageReducer from './reducers/collages'
 
 const rootReducer = combineReducers({userReducer, dreamReducer, collageReducer})
 
-const store = createStore(rootReducer, applyMiddleware(thunk), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(<Provider store={store}><App store={store}/></Provider>, document.getElementById('root'));
 registerServiceWorker();

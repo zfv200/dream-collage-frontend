@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { addAnalysis } from '../actions/actions'
 import { response_handler, bing_image_search } from '../actions/bingSearch'
+import { addImage, imageSearch, analysisSearch } from '../actions/actions'
+
 import Api from 'rosette-api'
 
 
@@ -13,24 +15,34 @@ class CollageContainer extends React.Component{
   }
 
   componentDidMount(){
-    fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
-      headers: {
-        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
-        'Content-Type':'application/json',
-        'Accept':'application/json',
-      },
-      method: "POST",
-      body: JSON.stringify({"content":this.props.content})
-    }).then(res=>res.json()).then(json=>{
-      if (json['keyphrases'].length > 0){
-        this.props.addAnalysis(json)
-        json['keyphrases'].map(keyphrase=>{
-          bing_image_search(keyphrase.phrase)
-        })
-      }
-    })
+    this.props.analysisSearch(this.props.content)
+    // this.props.analysisSearch(this.props.content)
+    // // fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
+    // //   headers: {
+    // //     'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
+    // //     'Content-Type':'application/json',
+    // //     'Accept':'application/json',
+    // //   },
+    // //   method: "POST",
+    // //   body: JSON.stringify({"content":this.props.content})
+    // // }).then(res=>res.json()).then(json=>{
+    // //   if (json['keyphrases'].length > 0){
+    // //     this.props.addAnalysis(json)
+    // //     json['keyphrases'].map(keyphrase=>{
+    // //       debugger;
+    // //       this.props.imageSearch(keyphrase.phrase)
+    // //     })
+    // //   }
+    // // })
   }
 
+  componentWillReceiveProps(nextProps){
+    if (nextProps.analyzedContent){
+      nextProps.analyzedContent.keyphrases.map(entry=>{
+        this.props.imageSearch(entry.phrase)
+      })
+    }
+  }
 
   render(){
     return (
@@ -45,8 +57,9 @@ const mapStateToProps = (state) => {
   return {
     content: state.collageReducer.content,
     adjectives: state.collageReducer.adjectives,
-    mood: state.collageReducer.mood
+    mood: state.collageReducer.mood,
+    analyzedContent: state.collageReducer.rosetteRes
   }
 }
 
-export default connect(mapStateToProps, {addAnalysis})(CollageContainer)
+export default connect(mapStateToProps, {addAnalysis, addImage, imageSearch, analysisSearch})(CollageContainer)

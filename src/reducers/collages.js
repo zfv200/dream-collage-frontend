@@ -3,6 +3,7 @@ const defaultState = {
   adjectives: "",
   mood: "",
   rosetteRes: [],
+  images: []
 }
 
 export default function collageReducer(state=defaultState, action){
@@ -10,7 +11,9 @@ export default function collageReducer(state=defaultState, action){
     case "ADD_KEYWORDS":
       return {...state, content: action.content, adjectives: action.adjectives, mood: action.mood}
     case "ADD_ANALYSIS":
-      return {rosetteRes: action.payload}
+      return {...state, rosetteRes: action.payload}
+    case "ADD_IMAGE":
+      return {...state, images: [...state.images, action.payload]}
     default:
       return state
   }
