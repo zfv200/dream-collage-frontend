@@ -29,7 +29,6 @@ class PhotoCropper extends React.Component{
   // }
 
   render(){
-    console.log(this.props.crops)
     return (
       <div>
         <Cropper
@@ -46,12 +45,6 @@ class PhotoCropper extends React.Component{
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    crops: state.collageReducer.cropped_images
-  }
-}
-
-export default connect(mapStateToProps, {addCroppedImage})(PhotoCropper)
+export default connect(null, {addCroppedImage})(PhotoCropper)
 
 // <img src={this.state.imageData}/>

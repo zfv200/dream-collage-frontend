@@ -14,6 +14,7 @@ export function imageSearch(phrase){
     })
     .then(res=>res.json())
     .then(json=>{
+      debugger;
       dispatch(addImage(json.value[0]['contentUrl']))
     })
   }
@@ -39,6 +40,20 @@ export function analysisSearch(content){
   }
 }
 
+export function startDreaming(){
+  return {
+    type: "BEGIN_DREAMING",
+    payload: true
+  }
+}
+
+export function finishCropping(){
+  return {
+    type: "FINISH_CROPPING",
+    payload: false
+  }
+}
+
 export function addDream(dreamData) {
   return {
     type: "ADD_DREAM",
@@ -49,13 +64,6 @@ export function addDream(dreamData) {
 export function startCollage(){
   return {
     type: "START_COLLAGE",
-    payload: true
-  }
-}
-
-export function startDreaming(){
-  return {
-    type: "BEGIN_DREAMING",
     payload: true
   }
 }
