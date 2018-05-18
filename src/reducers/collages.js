@@ -8,7 +8,7 @@ const defaultState = {
            "http://r.ddmcdn.com/s_f/o_1/cx_0/cy_0/cw_300/ch_300/w_300/APL/uploads/2014/10/kitten-cuteness300.jpg",
            "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2018%2F04%2Floki_the_sphynx-01_1.jpg%3Fw%3D1800&w=700&q=85"],
   cropped_images: [],
-  background_image: "https://cdn.tinybuddha.com/wp-content/uploads/2010/03/Peaceful.png"
+  background_image: "https://i.ytimg.com/vi/LDN6AXOZL3s/maxresdefault.jpg"
 }
 
 export default function collageReducer(state=defaultState, action){

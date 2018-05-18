@@ -15,10 +15,10 @@ class CanvasContainer extends React.Component{
 
   render(){
     return (
-      <div className="canvas">
-        <canvas className="canvas" ref="canvas" width={640} height={425} />
-        <img ref="image" src={this.props.backgroundImage} className="hidden"/>
-      </div>
+        <div className="canvas">
+          <canvas className="canvas" ref="canvas" width={800} height={600} />
+          <img ref="image" src={this.props.backgroundImage} className="hidden"/>
+        </div>
     )
   }
 }

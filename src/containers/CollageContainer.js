@@ -10,9 +10,16 @@ const CollageContainer = (props) => {
 
     return (
       <div>
-        <div className="crops">
-          {renderCrops}
-          <CanvasContainer />
+        <div className="ui three column grid container">
+          <div className="column">
+            {renderCrops}
+          </div>
+          <div className="column">
+            <CanvasContainer />
+          </div>
+          <div className="column">
+            hi
+          </div>
         </div>
       </div>
     )
