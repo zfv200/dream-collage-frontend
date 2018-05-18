@@ -6,10 +6,10 @@ import CanvasContainer from './CanvasContainer'
 const CollageContainer = (props) => {
     const indexHalf = Math.floor(props.collageImages.length / 2)
     const leftSide = props.collageImages.slice(0, indexHalf)
-    const rightSide = props.collageImages.slice(indexHalf)
-    const renderCropsA = leftSide.map(image=>{
-      return <CollageImage image={image}/>
-    })
+    const rightSide = props.collageImages.slice()
+    // const renderCropsA = props.collageImages.map(image=>{
+    //   return <CollageImage image={image}/>
+    // })
     const renderCropsB = rightSide.map(image=>{
       return <CollageImage image={image}/>
     })
@@ -18,7 +18,6 @@ const CollageContainer = (props) => {
       <div>
         <div className="ui grid">
           <div className="three wide column">
-            {renderCropsA}
           </div>
           <div className="three wide column">
             <CanvasContainer />

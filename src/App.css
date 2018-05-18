@@ -44,6 +44,7 @@
 /* canvas stuff */
 
 .canvas {
+  z-index: -1;
   background-color: "grey"
 }
 
