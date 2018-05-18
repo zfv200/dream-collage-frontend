@@ -29,8 +29,16 @@
 
 /* images: */
 
-.crops {
+/* .crops {
   float: left;
+} */
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  float: right;
 }
 
 /* canvas stuff */
