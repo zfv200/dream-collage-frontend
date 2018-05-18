@@ -18,6 +18,8 @@ class CanvasContainer extends React.Component{
 
   handleClick = () => {
     //source of the image doesn't get past the promise.
+
+    //have to grab the entire element of everything
     const image = html2canvas(document.body).then(canvas=> {
       this.props.addDream(Object.assign(
           {},
@@ -33,6 +35,13 @@ class CanvasContainer extends React.Component{
     //       content: this.props.content,
     //       image: image
     //     }))
+    // this.props.endDreaming()
+    // this.props.resetCropping()
+    // this.props.resetCollageState()
+    // this.props.endCollage()
+  }
+
+  reset = () => {
     this.props.endDreaming()
     this.props.resetCropping()
     this.props.resetCollageState()
@@ -44,6 +53,7 @@ class CanvasContainer extends React.Component{
         <div className="canvas">
           <canvas className="canvas" ref="canvas" width={800} height={600} />
           <button onClick={this.handleClick}>Save Collage</button>
+          <button onClick={this.reset}></button>
           <img ref="image" src={this.props.backgroundImage} className="hidden"/>
         </div>
     )
