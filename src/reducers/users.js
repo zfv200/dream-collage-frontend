@@ -1,7 +1,8 @@
 const defaultState = {
   currentUser: "zach",
   loggedIn: false,
-  dreaming: false
+  dreaming: false,
+  cropping: true
 }
 
 export default function userReducer(state=defaultState, action){
@@ -11,6 +12,8 @@ export default function userReducer(state=defaultState, action){
     case "BEGIN_DREAMING":
       //later utilize this function for ending dreaming true maybe
       return {...state, dreaming: action.payload}
+    case "FINISH_CROPPING":
+      return {...state, cropping: action.payload}
     default:
       return state
   }

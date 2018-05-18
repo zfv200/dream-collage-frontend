@@ -1,14 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import CollageImage from '../components/CollageImage'
 
-class CollageContainer extends React.Component{
+const CollageContainer = (props) => {
+    const renderCrops = props.collageImages.map(image=>{
+      return <CollageImage image={image}/>
+    })
 
-  render(){
     return (
       <div>
-        <button>Save Collage</button>
+        {renderCrops}
       </div>
     )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    collageImages: state.collageReducer.cropped_images
   }
 }
 
-export default CollageContainer
+export default connect(mapStateToProps)(CollageContainer)
