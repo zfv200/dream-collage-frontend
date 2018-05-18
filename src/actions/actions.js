@@ -50,6 +50,13 @@ export function startDreaming(){
   }
 }
 
+export function endDreaming(){
+  return {
+    type: "END_DREAMING",
+    payload: false
+  }
+}
+
 export function finishCropping(){
   return {
     type: "FINISH_CROPPING",

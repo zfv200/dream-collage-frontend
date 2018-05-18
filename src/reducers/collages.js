@@ -3,6 +3,7 @@ const defaultState = {
   adjectives: "",
   mood: "",
   rosetteRes: [],
+  // images: [],
   images: ["http://www.catster.com/wp-content/uploads/2017/11/A-Siamese-cat.jpg",
            "https://d17fnq9dkz9hgj.cloudfront.net/uploads/2012/11/152964589-welcome-home-new-cat-632x475.jpg",
            "http://r.ddmcdn.com/s_f/o_1/cx_0/cy_0/cw_300/ch_300/w_300/APL/uploads/2014/10/kitten-cuteness300.jpg",

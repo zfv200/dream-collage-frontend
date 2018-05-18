@@ -20,8 +20,6 @@ class CropperContainer extends React.Component{
   //   })
   // }
 
-
-
   render(){
     return (
       <div>
