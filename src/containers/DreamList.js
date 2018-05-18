@@ -12,6 +12,7 @@ class DreamList extends React.Component{
   }
 
   render(){
+    this.props.dreams.map(dream=>console.log(dream.image))
     return (
       <div>
         {this.displayDreams()}

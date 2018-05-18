@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState } from '../actions/actions'
 
 class CanvasContainer extends React.Component{
 
@@ -15,11 +15,19 @@ class CanvasContainer extends React.Component{
 
   }
 
+  handleClick = () => {
+    this.props.addDream(Object.assign({}, {content: this.props.content, image: this.image}))
+    this.props.endDreaming()
+    this.props.resetCropping()
+    this.props.resetCollageState()
+  }
+
   render(){
+    console.log(this.props.dreams)
     return (
         <div className="canvas">
           <canvas className="canvas" ref="canvas" width={800} height={600} />
-          <button onClick={()=>this.props.addDream(Object.assign({}, {content: this.props.content, image: this.image}))}>Save Collage</button>
+          <button onClick={this.handleClick}>Save Collage</button>
           <img ref="image" src={this.props.backgroundImage} className="hidden"/>
         </div>
     )
@@ -32,8 +40,9 @@ const mapStateToProps = (state) => {
     content: state.collageReducer.content,
     adjectives: state.collageReducer.adjectives,
     mood: state.collageReducer.mood,
+    dreaming: state.userReducer.dreaming,
     dreams: state.dreamReducer.dreams
   }
 }
 
-export default connect(mapStateToProps, {addDream})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState})(CanvasContainer)

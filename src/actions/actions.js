@@ -64,6 +64,13 @@ export function finishCropping(){
   }
 }
 
+export function resetCropping(){
+  return {
+    type: "RESET_CROPPING",
+    payload: true
+  }
+}
+
 export function addDream(dreamData) {
   return {
     type: "ADD_DREAM",
@@ -75,6 +82,19 @@ export function startCollage(){
   return {
     type: "START_COLLAGE",
     payload: true
+  }
+}
+
+export function endCollage(){
+  return {
+    type: "END_COLLAGE",
+    payload: false
+  }
+}
+
+export function resetCollageState(){
+  return {
+    type: "RESET_COLLAGE_STATE",
   }
 }
 
