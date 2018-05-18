@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addDream, endDreaming, resetCropping, endCollage, resetCollageState } from '../actions/actions'
+import html2canvas from 'html2canvas'
 
 class CanvasContainer extends React.Component{
 
@@ -16,14 +17,29 @@ class CanvasContainer extends React.Component{
   }
 
   handleClick = () => {
-    this.props.addDream(Object.assign({}, {content: this.props.content, image: this.image}))
+    //source of the image doesn't get past the promise.
+    const image = html2canvas(document.body).then(canvas=> {
+      this.props.addDream(Object.assign(
+          {},
+          {
+            content: this.props.content,
+            image: canvas.toDataURL('image/png')
+          }))
+      // canvas.toDataURL('image/png')
+    })
+    // this.props.addDream(Object.assign(
+    //     {},
+    //     {
+    //       content: this.props.content,
+    //       image: image
+    //     }))
     this.props.endDreaming()
     this.props.resetCropping()
     this.props.resetCollageState()
+    this.props.endCollage()
   }
 
   render(){
-    console.log(this.props.dreams)
     return (
         <div className="canvas">
           <canvas className="canvas" ref="canvas" width={800} height={600} />

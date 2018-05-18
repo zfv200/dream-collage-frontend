@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import CollageImage from '../components/CollageImage'
 import CanvasContainer from './CanvasContainer'
+// import html2canvas from 'html2canvas';
+
 
 const CollageContainer = (props) => {
     const indexHalf = Math.floor(props.collageImages.length / 2)
