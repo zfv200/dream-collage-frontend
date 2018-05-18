@@ -7,17 +7,20 @@ import CollageContainer from './CollageContainer'
 
 class CropperContainer extends React.Component{
 
-  componentDidMount(){
-    this.props.analysisSearch(this.props.content)
-  }
+  // componentDidMount(){
+  //   this.props.analysisSearch(this.props.content)
+  //      this.props.imageSearch(this.props.mood, "mood")
+  // }
+  //
+  // componentWillReceiveProps(nextProps){
+  //   nextProps.analyzedContent.keyphrases.map(entry=>{
+  //     if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
+  //       this.props.imageSearch(entry.phrase + this.props.adjectives)
+  //     }
+  //   })
+  // }
 
-  componentWillReceiveProps(nextProps){
-    nextProps.analyzedContent.keyphrases.map(entry=>{
-      if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
-        this.props.imageSearch(entry.phrase + this.props.adjectives)
-      }
-    })
-  }
+
 
   render(){
     return (

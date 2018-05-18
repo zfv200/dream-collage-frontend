@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import CollageImage from '../components/CollageImage'
+import CanvasContainer from './CanvasContainer'
 
 const CollageContainer = (props) => {
     const renderCrops = props.collageImages.map(image=>{
@@ -9,7 +10,10 @@ const CollageContainer = (props) => {
 
     return (
       <div>
-        {renderCrops}
+        <div className="crops">
+          {renderCrops}
+          <CanvasContainer />
+        </div>
       </div>
     )
 }

@@ -2,19 +2,23 @@
 // const headers = { "Content-Type":"application/json"}
 
 
-export function imageSearch(phrase){
+export function imageSearch(phrase, type="image"){
   return (dispatch) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${phrase}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${phrase}&count=1&safeSearch=Moderate`, {
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'derp'
+        'Ocp-Apim-Subscription-Key':'730c349bb4ae4c4583441d1dc1e628a2'
       },
       method: 'get'
     })
     .then(res=>res.json())
     .then(json=>{
-      dispatch(addImage(json.value[0]['contentUrl']))
+      if (type==="image"){
+        dispatch(addImage(json.value[0]['contentUrl']))
+      } else {
+        dispatch(addMood(json.value[0]['contentUrl']))
+      }
     })
   }
 }
@@ -23,7 +27,7 @@ export function analysisSearch(content){
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
-        'X-RosetteAPI-Key':'derp',
+        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
         'Content-Type':'application/json',
         'Accept':'application/json',
       },
@@ -86,6 +90,13 @@ export function addAnalysis(text){
 export function addImage(url){
   return {
     type: "ADD_IMAGE",
+    payload: url
+  }
+}
+
+export function addMood(url){
+  return {
+    type: "ADD_MOOD",
     payload: url
   }
 }
