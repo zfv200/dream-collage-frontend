@@ -11,13 +11,15 @@ const imageList = (props) => {
     return (
       <div>
         {renderPhotos}
+        <PhotoCropper image={props.backgroundImage}/>
       </div>
     )
 }
 
 const mapStateToProps = (state) => {
   return {
-    images: state.collageReducer.images
+    images: state.collageReducer.images,
+    backgroundImage: state.collageReducer.background_image
   }
 }
 
