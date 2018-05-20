@@ -10,6 +10,9 @@ import userReducer from './reducers/users'
 import dreamReducer from './reducers/dreams'
 import collageReducer from './reducers/collages'
 
+import 'semantic-ui-css/semantic.min.css';
+
+
 const rootReducer = combineReducers({userReducer, dreamReducer, collageReducer})
 
 const store = createStore(rootReducer, applyMiddleware(thunk))

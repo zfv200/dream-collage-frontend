@@ -26,3 +26,28 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+/* images: */
+
+/* .crops {
+  float: left;
+} */
+
+.floatL {
+  float: left;
+}
+
+.floatR {
+  float: right;
+}
+
+/* canvas stuff */
+
+.canvas {
+  z-index: -1;
+  background-color: "grey"
+}
+
+.hidden {
+  display: none;
+}

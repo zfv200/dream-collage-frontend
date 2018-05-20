@@ -14,6 +14,10 @@ export default function userReducer(state=defaultState, action){
       return {...state, dreaming: action.payload}
     case "FINISH_CROPPING":
       return {...state, cropping: action.payload}
+    case "RESET_CROPPING":
+      return {...state, cropping: action.payload}
+    case "END_DREAMING":
+      return {...state, dreaming: action.payload}
     default:
       return state
   }

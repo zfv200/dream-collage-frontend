@@ -2,9 +2,9 @@
 // const headers = { "Content-Type":"application/json"}
 
 
-export function imageSearch(phrase){
+export function imageSearch(phrase, type="image"){
   return (dispatch) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${phrase}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${phrase}&count=1&safeSearch=Moderate`, {
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
@@ -14,7 +14,11 @@ export function imageSearch(phrase){
     })
     .then(res=>res.json())
     .then(json=>{
-      dispatch(addImage(json.value[0]['contentUrl']))
+      if (type==="image"){
+        dispatch(addImage(json.value[0]['contentUrl']))
+      } else {
+        dispatch(addMood(json.value[0]['contentUrl']))
+      }
     })
   }
 }
@@ -46,10 +50,24 @@ export function startDreaming(){
   }
 }
 
+export function endDreaming(){
+  return {
+    type: "END_DREAMING",
+    payload: false
+  }
+}
+
 export function finishCropping(){
   return {
     type: "FINISH_CROPPING",
     payload: false
+  }
+}
+
+export function resetCropping(){
+  return {
+    type: "RESET_CROPPING",
+    payload: true
   }
 }
 
@@ -64,6 +82,19 @@ export function startCollage(){
   return {
     type: "START_COLLAGE",
     payload: true
+  }
+}
+
+export function endCollage(){
+  return {
+    type: "END_COLLAGE",
+    payload: false
+  }
+}
+
+export function resetCollageState(){
+  return {
+    type: "RESET_COLLAGE_STATE",
   }
 }
 
@@ -86,6 +117,13 @@ export function addAnalysis(text){
 export function addImage(url){
   return {
     type: "ADD_IMAGE",
+    payload: url
+  }
+}
+
+export function addMood(url){
+  return {
+    type: "ADD_MOOD",
     payload: url
   }
 }
