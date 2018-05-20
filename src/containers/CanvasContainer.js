@@ -4,23 +4,24 @@ import { addDream, endDreaming, resetCropping, endCollage, resetCollageState } f
 import html2canvas from 'html2canvas'
 
 class CanvasContainer extends React.Component{
-
-  componentDidMount() {
-    const canvas = this.refs.canvas
-    const ctx = canvas.getContext("2d")
-    const img = this.refs.image
-    img.onload = () => {
-      ctx.drawImage(img, 0, 0)
-    }
-    this.image = this.refs.canvas.toDataURL()
-
-  }
+  //
+  // componentDidMount() {
+  //   const canvas = this.refs.canvas
+  //   const ctx = canvas.getContext("2d")
+  //   const img = this.refs.image
+  //   img.onload = () => {
+  //     ctx.drawImage(img, 0, 0)
+  //   }
+  //   this.image = this.refs.canvas.toDataURL()
+  //
+  // }
 
   handleClick = () => {
     //source of the image doesn't get past the promise.
 
     //have to grab the entire element of everything
     const image = html2canvas(document.body).then(canvas=> {
+      console.log(canvas)
       this.props.addDream(Object.assign(
           {},
           {
@@ -51,10 +52,8 @@ class CanvasContainer extends React.Component{
   render(){
     return (
         <div className="canvas">
-          <canvas className="canvas" ref="canvas" width={800} height={600} />
           <button onClick={this.handleClick}>Save Collage</button>
           <button onClick={this.reset}></button>
-          <img ref="image" src={this.props.backgroundImage} className="hidden"/>
         </div>
     )
   }
@@ -72,3 +71,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState})(CanvasContainer)
+
+// <canvas className="canvas" ref="canvas" width={800} height={600} />
+// <img ref="image" src={this.props.backgroundImage} className="hidden"/>

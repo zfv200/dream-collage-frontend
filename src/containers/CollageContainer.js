@@ -17,17 +17,11 @@ const CollageContainer = (props) => {
     })
 
     return (
-      <div>
-        <div className="ui grid">
-          <div className="three wide column">
-          </div>
-          <div className="three wide column">
-            <CanvasContainer />
-          </div>
-          <div className="three wide column">
-            {renderCropsB}
-          </div>
+      <div id="collage">
+        <div>
+          {renderCropsB}
         </div>
+        <CanvasContainer />
       </div>
     )
 }

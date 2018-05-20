@@ -10,8 +10,8 @@ const imageList = (props) => {
 
     return (
       <div>
+        <PhotoCropper style={{zIndex: -1}} image={props.backgroundImage}/>
         {renderPhotos}
-        <PhotoCropper image={props.backgroundImage}/>
       </div>
     )
 }
