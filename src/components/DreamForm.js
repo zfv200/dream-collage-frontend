@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addDream } from '../actions/actions'
 import { startCollage } from '../actions/actions'
 import { addKeywords } from '../actions/actions'
+import { TextArea } from 'semantic-ui-react'
 
 class DreamForm extends React.Component{
   state = {
@@ -28,15 +29,18 @@ class DreamForm extends React.Component{
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <textarea
+          <TextArea
+          className="text-area"
           onChange={this.handleChange}
           name="content"
           /><br/>
-          <textarea
+          <TextArea
+          className="text-area"
           onChange={this.handleChange}
           name="adjectives"
           /><br/>
           <input
+          className="text-area"
           onChange={this.handleChange}
           name="mood"
           /><br/>

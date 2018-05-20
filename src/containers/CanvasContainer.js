@@ -1,45 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addDream, endDreaming, resetCropping, endCollage, resetCollageState } from '../actions/actions'
+import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 
 class CanvasContainer extends React.Component{
-  //
-  // componentDidMount() {
-  //   const canvas = this.refs.canvas
-  //   const ctx = canvas.getContext("2d")
-  //   const img = this.refs.image
-  //   img.onload = () => {
-  //     ctx.drawImage(img, 0, 0)
-  //   }
-  //   this.image = this.refs.canvas.toDataURL()
-  //
-  // }
+
+  state={
+    buttonStyle: {display: 'block', margin: 'auto'},
+    boxStyle: {display: 'block'}
+  }
 
   handleClick = () => {
-    //source of the image doesn't get past the promise.
-
-    //have to grab the entire element of everything
+    this.setState({buttonStyle: {display: 'none'}, boxStyle: {display: 'none'}})
     const image = html2canvas(document.body).then(canvas=> {
-      console.log(canvas)
-      this.props.addDream(Object.assign(
-          {},
-          {
-            content: this.props.content,
-            image: canvas.toDataURL('image/png')
-          }))
-      // canvas.toDataURL('image/png')
+      this.props.addDream(Object.assign({},
+          { content: this.props.content, image: canvas.toDataURL('image/png') }
+        ))
+      this.reset()
     })
-    // this.props.addDream(Object.assign(
-    //     {},
-    //     {
-    //       content: this.props.content,
-    //       image: image
-    //     }))
-    // this.props.endDreaming()
-    // this.props.resetCropping()
-    // this.props.resetCollageState()
-    // this.props.endCollage()
   }
 
   reset = () => {
@@ -52,8 +31,8 @@ class CanvasContainer extends React.Component{
   render(){
     return (
         <div className="canvas">
-          <button onClick={this.handleClick}>Save Collage</button>
-          <button onClick={this.reset}></button>
+          <div className="box" style={this.state.boxStyle}></div>
+          <Button style={this.state.buttonStyle} onClick={this.handleClick}>Save Collage</Button>
         </div>
     )
   }
@@ -71,6 +50,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState})(CanvasContainer)
-
-// <canvas className="canvas" ref="canvas" width={800} height={600} />
-// <img ref="image" src={this.props.backgroundImage} className="hidden"/>

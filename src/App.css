@@ -29,25 +29,29 @@
 
 /* images: */
 
-/* .crops {
-  float: left;
-} */
-
-.floatL {
-  float: left;
+.dream-image {
+  width: 1000px;
+  height: 500px;
 }
 
-.floatR {
-  float: right;
+.header-photo {
+  height: 300px;
+  width: 100%;
 }
 
-/* canvas stuff */
+/* text */
 
-.canvas {
-  z-index: -1;
-  background-color: "grey"
+.text-area {
+  font-style: italic;
 }
 
-.hidden {
-  display: none;
+/* other */
+
+.box {
+  margin: auto;
+  border-style: solid;
+  border-color: #ccffff;
+  width: 1200px;
+  height: 700px;
+  /* background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/E8mQw973xilexniun/videoblocks-dreamy-liquid-ink-colors-blending-mixing-swirl-fluid_sjbzxacjg_thumbnail-full01.png'); */
 }

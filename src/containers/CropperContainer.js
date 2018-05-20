@@ -4,6 +4,7 @@ import { addAnalysis } from '../actions/actions'
 import { addImage, imageSearch, analysisSearch, finishCropping } from '../actions/actions'
 import ImageList from './ImageList'
 import CollageContainer from './CollageContainer'
+import { Button } from 'semantic-ui-react'
 
 class CropperContainer extends React.Component{
 
@@ -26,7 +27,7 @@ class CropperContainer extends React.Component{
         {this.props.cropping ?
         <div>
           <ImageList />
-          <button onClick={()=>this.props.finishCropping()}>Save Collage</button>
+          <Button onClick={()=>this.props.finishCropping()}>Save Collage</Button>
         </div>
         : <CollageContainer />}
       </div>
