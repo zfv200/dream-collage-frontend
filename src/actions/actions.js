@@ -58,6 +58,7 @@ export function endDreaming(){
 }
 
 export function finishCropping(){
+  console.log("called")
   return {
     type: "FINISH_CROPPING",
     payload: false
