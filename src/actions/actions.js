@@ -1,5 +1,5 @@
-// const API_URL = "http://localhost:3000/api/v1"
-// const headers = { "Content-Type":"application/json"}
+const API_URL = "http://localhost:3000/api/v1"
+const headers = { "Content-Type":"application/json"}
 
 
 export function imageSearch(phrase, type="image"){
@@ -39,6 +39,32 @@ export function analysisSearch(content){
       if (json['keyphrases'].length > 0){
         dispatch(addAnalysis(json))
       }
+    })
+  }
+}
+
+export function saveDream(userId, content, collage) {
+  return (dispatch) => {
+    fetch(API_URL + "/dreams", {
+      headers: headers,
+      method: "post",
+      body: JSON.stringify({user_id: userId, content: content})
+    }).then(res=>res.json()).then(console.log)
+  }
+}
+
+export function fetchDreams(){
+  return (dispatch) => {
+    fetch(API_URL + "/dreams", {
+      headers: headers,
+      method: 'get',
+    }).then(res=>res.json()).then(json=>{
+      const dreams = json.data.filter(dream=>{
+        return dream.attributes['user-id']===1
+      })
+      dreams.map(dream=>{
+        dispatch(addDream(dream.attributes))
+      })
     })
   }
 }

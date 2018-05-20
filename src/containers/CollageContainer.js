@@ -4,15 +4,13 @@ import CollageImage from '../components/CollageImage'
 import CanvasContainer from './CanvasContainer'
 
 class CollageContainer extends React.Component {
-    // const indexHalf = Math.floor(props.collageImages.length / 2)
-    // const leftSide = props.collageImages.slice(0, indexHalf)
-    // const rightSide = this.props.collageImages.slice()
+
     state = {
-      imageStyle: {
-        width: "50px",
-        height: "50px",
-        opacity: "0.1"
-      },
+      // imageStyle: {
+      //   width: "200px",
+      //   height: "200px",
+      //   opacity: "0.5"
+      // },
       buttonStyle: {
         display: "block"
       }
@@ -26,13 +24,17 @@ class CollageContainer extends React.Component {
       })
     }
 
+    displayImages(){
+      return this.props.collageImages.slice().map(image=>{
+        return <CollageImage buttonStyle={this.state.buttonStyle} largerImage={this.largerImage} style={this.state.imageStyle} image={image}/>
+      })
+    }
+
     render() {
       return (
         <div id="collage">
           <div>
-            {this.props.collageImages.slice().map(image=>{
-              return <CollageImage buttonStyle={this.state.buttonStyle} largerImage={this.largerImage} style={this.state.imageStyle} image={image}/>
-            })}
+            {this.displayImages()}
           </div>
           <CanvasContainer hideButtons={this.hideButtons} />
         </div>

@@ -1,5 +1,6 @@
 const defaultState = {
   currentUser: "zach",
+  userId: "1",
   loggedIn: false,
   dreaming: false,
   cropping: true

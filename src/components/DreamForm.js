@@ -29,16 +29,19 @@ class DreamForm extends React.Component{
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+          <h1>Tell me about your dream...</h1>
           <TextArea
           className="text-area"
           onChange={this.handleChange}
           name="content"
           /><br/>
+          <h1>What adjectives would you use to describe the dream?</h1>
           <TextArea
           className="text-area"
           onChange={this.handleChange}
           name="adjectives"
           /><br/>
+          <h1>Describe the overall mood in one word...</h1>
           <input
           className="text-area"
           onChange={this.handleChange}

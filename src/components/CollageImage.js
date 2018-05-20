@@ -18,9 +18,9 @@ class CollageImage extends React.Component {
   state={
     selectedImage: false,
     imageStyle: {
-      width: "50px",
-      height: "50px",
-      opacity: "0.1"
+      width: "200px",
+      height: "200px",
+      opacity: "0.5"
     }
   }
 
