@@ -44,12 +44,9 @@ class PhotoCropper extends React.Component{
                 crop={this._crop.bind(this)} />
             </Grid.Column>
             <Grid.Column>
-              <br></br>
-              <br></br>
               <Button size="massive" fluid onClick={this.cropImage}>Crop</Button>
-              <br></br>
-              <br></br>
               <Button size="massive" fluid onClick={()=>this.props.addCroppedImage(this.state.croppedImage)}>Save Image</Button>
+              <img src={this.state.imageData}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -59,5 +56,3 @@ class PhotoCropper extends React.Component{
 }
 
 export default connect(null, {addCroppedImage})(PhotoCropper)
-
-// <img src={this.state.imageData}/>

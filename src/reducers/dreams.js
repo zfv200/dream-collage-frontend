@@ -4,6 +4,7 @@ const defaultState = {
 }
 
 export default function botReducer(state=defaultState, action){
+  console.log(action)
   switch(action.type){
     case "ADD_DREAM":
       return {...state, dreams: [...state.dreams, action.payload]}

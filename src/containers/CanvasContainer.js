@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 
@@ -16,8 +16,9 @@ class CanvasContainer extends React.Component{
     this.setState({buttonStyle: {display: 'none'}, boxStyle: {display: 'none'}})
     const image = html2canvas(document.body).then(canvas=> {
       this.props.addDream(Object.assign({},
-          { content: this.props.content, image: canvas.toDataURL('image/png') }
+          { content: this.props.content, collage: canvas.toDataURL('image/png') }
         ))
+      this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
       this.reset()
     })
   }
@@ -46,8 +47,9 @@ const mapStateToProps = (state) => {
     adjectives: state.collageReducer.adjectives,
     mood: state.collageReducer.mood,
     dreaming: state.userReducer.dreaming,
-    dreams: state.dreamReducer.dreams
+    dreams: state.dreamReducer.dreams,
+    userId: state.userReducer.userId
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream})(CanvasContainer)
