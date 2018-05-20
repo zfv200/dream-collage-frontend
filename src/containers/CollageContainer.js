@@ -3,25 +3,41 @@ import { connect } from 'react-redux'
 import CollageImage from '../components/CollageImage'
 import CanvasContainer from './CanvasContainer'
 
-const CollageContainer = (props) => {
-    const indexHalf = Math.floor(props.collageImages.length / 2)
-    const leftSide = props.collageImages.slice(0, indexHalf)
-    const rightSide = props.collageImages.slice()
-    // const renderCropsA = props.collageImages.map(image=>{
-    //   return <CollageImage image={image}/>
-    // })
-    const renderCropsB = rightSide.map(image=>{
-      return <CollageImage image={image}/>
-    })
+class CollageContainer extends React.Component {
+    // const indexHalf = Math.floor(props.collageImages.length / 2)
+    // const leftSide = props.collageImages.slice(0, indexHalf)
+    // const rightSide = this.props.collageImages.slice()
+    state = {
+      imageStyle: {
+        width: "50px",
+        height: "50px",
+        opacity: "0.1"
+      },
+      buttonStyle: {
+        display: "block"
+      }
+    }
 
-    return (
-      <div id="collage">
-        <div>
-          {renderCropsB}
+    hideButtons = () => {
+      this.setState({
+        buttonStyle: {
+          display: "none"
+        }
+      })
+    }
+
+    render() {
+      return (
+        <div id="collage">
+          <div>
+            {this.props.collageImages.slice().map(image=>{
+              return <CollageImage buttonStyle={this.state.buttonStyle} largerImage={this.largerImage} style={this.state.imageStyle} image={image}/>
+            })}
+          </div>
+          <CanvasContainer hideButtons={this.hideButtons} />
         </div>
-        <CanvasContainer />
-      </div>
-    )
+      )
+    }
 }
 
 const mapStateToProps = (state) => {
