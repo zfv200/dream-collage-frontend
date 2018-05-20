@@ -30,21 +30,37 @@ class CollageImage extends React.Component {
     })
   }
 
-  largerImage = () => {
+  widthPlus = () => {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
         width: `${parseInt(this.state.imageStyle.width) + 20}px`,
+      }
+    })
+  }
+
+  widthMinus = () => {
+    this.setState({
+      imageStyle: {
+        ...this.state.imageStyle,
+        width: `${parseInt(this.state.imageStyle.width) - 20}px`,
+      }
+    })
+  }
+
+  heightPlus = () => {
+    this.setState({
+      imageStyle: {
+        ...this.state.imageStyle,
         height: `${parseInt(this.state.imageStyle.height) + 20}px`
       }
     })
   }
 
-  smallerImage = () => {
+  heightMinus = () => {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
-        width: `${parseInt(this.state.imageStyle.width) - 20}px`,
         height: `${parseInt(this.state.imageStyle.height) - 20}px`
       }
     })
@@ -71,20 +87,20 @@ class CollageImage extends React.Component {
   render(){
     return (
       <div>
-        {this.state.selectedImage ?
-          <div>
-            <button style={this.props.buttonStyle} onClick={this.largerImage}>size +</button>
-            <button style={this.props.buttonStyle} onClick={this.smallerImage}>size -</button>
-            <button style={this.props.buttonStyle} onClick={this.opacityUp}>++</button>
-            <button style={this.props.buttonStyle} onClick={this.opacityDown}>--</button>
-          </div>
-          : null}
         <Rnd default={{ x: 0, y: 0, width: 200, height: 200, }} >
-          <img
-          onClick={this.handleClick}
-          style={this.state.imageStyle}
-          className="collage-image"
-          src={this.props.image}/>
+            <div>
+              <button style={this.props.buttonStyle} onClick={this.widthPlus}>width +</button>
+              <button style={this.props.buttonStyle} onClick={this.widthMinus}>width -</button>
+              <button style={this.props.buttonStyle} onClick={this.heightPlus}>height +</button>
+              <button style={this.props.buttonStyle} onClick={this.heightMinus}>height -</button>
+              <button style={this.props.buttonStyle} onClick={this.opacityUp}>++</button>
+              <button style={this.props.buttonStyle} onClick={this.opacityDown}>--</button>
+            </div>
+            <img
+            onClick={this.handleClick}
+            style={this.state.imageStyle}
+            className="collage-image"
+            src={this.props.image}/>
         </Rnd>
       </div>
     )

@@ -18,44 +18,6 @@ class CollageContainer extends React.Component {
       }
     }
 
-    // largerImage = () => {
-    //   this.setState({
-    //     imageStyle: {
-    //       ...this.state.imageStyle,
-    //       width: `${parseInt(this.state.imageStyle.width) + 20}px`,
-    //       height: `${parseInt(this.state.imageStyle.height) + 20}px`
-    //     }
-    //   })
-    // }
-    //
-    // smallerImage = () => {
-    //   this.setState({
-    //     imageStyle: {
-    //       ...this.state.imageStyle,
-    //       width: `${parseInt(this.state.imageStyle.width) - 20}px`,
-    //       height: `${parseInt(this.state.imageStyle.height) - 20}px`
-    //     }
-    //   })
-    // }
-    //
-    // opacityUp = () => {
-    //   this.setState({
-    //     imageStyle: {
-    //       ...this.state.imageStyle,
-    //       opacity: `${parseFloat(this.state.imageStyle.opacity) + .1}`
-    //     }
-    //   })
-    // }
-    //
-    // opacityDown = () => {
-    //   this.setState({
-    //     imageStyle: {
-    //       ...this.state.imageStyle,
-    //       opacity: `${parseFloat(this.state.imageStyle.opacity) - .1}`
-    //     }
-    //   })
-    // }
-
     hideButtons = () => {
       this.setState({
         buttonStyle: {
@@ -65,7 +27,6 @@ class CollageContainer extends React.Component {
     }
 
     render() {
-      console.log(this.state.imageStyle.opacity)
       return (
         <div id="collage">
           <div>
