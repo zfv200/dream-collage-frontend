@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -26,7 +27,6 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
 /* images: */
 
 .dream-image {
@@ -38,6 +38,10 @@
   height: 300px;
   width: 100%;
 }
+/*
+.collage-image {
+  opacity: 0.7;
+} */
 
 /* text */
 

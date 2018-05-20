@@ -12,6 +12,7 @@ class CanvasContainer extends React.Component{
   }
 
   handleClick = () => {
+    this.props.hideButtons()
     this.setState({buttonStyle: {display: 'none'}, boxStyle: {display: 'none'}})
     const image = html2canvas(document.body).then(canvas=> {
       this.props.addDream(Object.assign({},
