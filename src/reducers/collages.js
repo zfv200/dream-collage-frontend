@@ -10,6 +10,7 @@ const defaultState = {
            {url: "https://imagesvc.timeincapp.com/v3/mm/image?url=https%3A%2F%2Fpeopledotcom.files.wordpress.com%2F2018%2F04%2Floki_the_sphynx-01_1.jpg%3Fw%3D1800&w=700&q=85", id: 4}],
   // https://i.ytimg.com/vi/LDN6AXOZL3s/maxresdefault.jpg
   cropped_images: [],
+  // background_image: {},
   background_image: {url: "https://i.ytimg.com/vi/LDN6AXOZL3s/maxresdefault.jpg", id: 5},
   headerImage: "https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/E8mQw973xilexniun/videoblocks-dreamy-liquid-ink-colors-blending-mixing-swirl-fluid_sjbzxacjg_thumbnail-full01.png"
 }

@@ -36,14 +36,16 @@ class PhotoCropper extends React.Component{
   // }
 
   render(){
+    console.log(this.props)
     return (
       <div>
+        {this.props.image ?
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
               <Cropper
                 ref='cropper'
-                src={this.props.image.url}
+                src={this.props.image}
                 style={{height: 400, width: '100%'}}
                 aspectRatio={16 / 9}
                 guides={false}
@@ -56,6 +58,7 @@ class PhotoCropper extends React.Component{
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        : null }
       </div>
     )
   }
