@@ -1,6 +1,24 @@
 #root {
-  background-color: #cce0ff;
+  background-color: #a1fcf9
 }
+
+.canvas {
+  background-color: #a1fcf9
+}
+
+header {
+  background-color: #a1fcf9
+}
+
+/* body {
+  background: #a1fcf9;
+  background-color: #a1fcf9
+}
+
+html, body {
+  background: #a1fcf9;
+  background-color: #a1fcf9
+} */
 
 .App {
   text-align: center;
@@ -35,7 +53,6 @@
 .dream-image {
   width: 1000px;
   height: 500px;
-  border-style: solid;
 }
 
 .header-photo {
@@ -46,6 +63,7 @@
 .dream-div {
   width: 1000px;
   margin: auto;
+  background-color: #a1fcf9;
 }
 
 /*

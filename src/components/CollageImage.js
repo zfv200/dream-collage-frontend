@@ -5,22 +5,21 @@ import React from 'react'
 import Rnd from 'react-rnd'
 
 
-// const style = {
-//   display: 'flex',
-//   alignItems: 'center',
-//   justifyContent: 'center',
-//   border: 'solid 1px #ddd',
-//   background: '#f0f0f0',
-// };
+const style = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // border: 'solid 1px #ddd',
+  // background: '#f0f0f0',
+};
 
 class CollageImage extends React.Component {
 
   state={
-    selectedImage: false,
     imageStyle: {
       width: "200px",
       height: "200px",
-      opacity: "0.5"
+      opacity: "0.5",
     }
   }
 
@@ -34,7 +33,7 @@ class CollageImage extends React.Component {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
-        width: `${parseInt(this.state.imageStyle.width) + 20}px`,
+        width: `${parseInt(this.state.imageStyle.width) + 50}px`,
       }
     })
   }
@@ -43,7 +42,7 @@ class CollageImage extends React.Component {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
-        width: `${parseInt(this.state.imageStyle.width) - 20}px`,
+        width: `${parseInt(this.state.imageStyle.width) - 50}px`,
       }
     })
   }
@@ -52,7 +51,7 @@ class CollageImage extends React.Component {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
-        height: `${parseInt(this.state.imageStyle.height) + 20}px`
+        height: `${parseInt(this.state.imageStyle.height) + 50}px`
       }
     })
   }
@@ -61,7 +60,7 @@ class CollageImage extends React.Component {
     this.setState({
       imageStyle: {
         ...this.state.imageStyle,
-        height: `${parseInt(this.state.imageStyle.height) - 20}px`
+        height: `${parseInt(this.state.imageStyle.height) - 50}px`
       }
     })
   }
@@ -84,23 +83,29 @@ class CollageImage extends React.Component {
     })
   }
 
+  handleClick = () => {
+    this.props.handleSelect(this.props.id)
+  }
+
+
   render(){
     return (
       <div>
-        <Rnd default={{ x: 0, y: 0, width: 200, height: 200, }} >
-            <div>
-              <button style={this.props.buttonStyle} onClick={this.widthPlus}>width +</button>
-              <button style={this.props.buttonStyle} onClick={this.widthMinus}>width -</button>
-              <button style={this.props.buttonStyle} onClick={this.heightPlus}>height +</button>
-              <button style={this.props.buttonStyle} onClick={this.heightMinus}>height -</button>
-              <button style={this.props.buttonStyle} onClick={this.opacityUp}>++</button>
-              <button style={this.props.buttonStyle} onClick={this.opacityDown}>--</button>
-            </div>
+        <div>
+          <button style={this.props.buttonStyle} onClick={this.widthPlus}>width +</button>
+          <button style={this.props.buttonStyle} onClick={this.widthMinus}>width -</button>
+          <button style={this.props.buttonStyle} onClick={this.heightPlus}>height +</button>
+          <button style={this.props.buttonStyle} onClick={this.heightMinus}>height -</button>
+          <button style={this.props.buttonStyle} onClick={this.opacityUp}>++</button>
+          <button style={this.props.buttonStyle} onClick={this.opacityDown}>--</button>
+        </div>
+        <Rnd style={style} default={{ x: 0, y: 0, width: 200, height: 200, }} >
+          <div onClick={this.handleClick} style={ this.props.selectedImage===this.props.id ? {backgroundColor:"green"} : {}}>
             <img
-            onClick={this.handleClick}
             style={this.state.imageStyle}
             className="collage-image"
             src={this.props.image}/>
+          </div>
         </Rnd>
       </div>
     )

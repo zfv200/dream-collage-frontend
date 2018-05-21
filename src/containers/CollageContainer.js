@@ -13,7 +13,8 @@ class CollageContainer extends React.Component {
       // },
       buttonStyle: {
         display: "block"
-      }
+      },
+      selectedImage: null
     }
 
     hideButtons = () => {
@@ -24,9 +25,22 @@ class CollageContainer extends React.Component {
       })
     }
 
+    handleSelect = (id) => {
+      this.setState({
+        selectedImage: id
+      })
+    }
+
     displayImages(){
       return this.props.collageImages.slice().map(image=>{
-        return <CollageImage buttonStyle={this.state.buttonStyle} largerImage={this.largerImage} style={this.state.imageStyle} image={image}/>
+        return <CollageImage
+                handleSelect={this.handleSelect}
+                selectedImage={this.state.selectedImage}
+                id={image.id}
+                buttonStyle={this.state.buttonStyle}
+                largerImage={this.largerImage}
+                style={this.state.imageStyle}
+                image={image.url}/>
       })
     }
 

@@ -12,11 +12,17 @@ class PhotoCropper extends React.Component{
   }
 
   _crop(){
-    let data = this.refs.cropper.getCroppedCanvas().toDataURL()
-
-    this.setState({
-      imageData: data
-    })
+    try {
+      let data = this.refs.cropper.getCroppedCanvas().toDataURL()
+      this.setState({
+        imageData: data
+      })
+    }
+    catch(err) {
+      this.setState({
+        imageData: null
+      })
+    }
   }
 
   cropImage = () => {
@@ -37,7 +43,7 @@ class PhotoCropper extends React.Component{
             <Grid.Column>
               <Cropper
                 ref='cropper'
-                src={this.props.image}
+                src={this.props.image.url}
                 style={{height: 400, width: '100%'}}
                 aspectRatio={16 / 9}
                 guides={false}
