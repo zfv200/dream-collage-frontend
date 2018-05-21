@@ -12,11 +12,17 @@ class PhotoCropper extends React.Component{
   }
 
   _crop(){
-    let data = this.refs.cropper.getCroppedCanvas().toDataURL()
-
-    this.setState({
-      imageData: data
-    })
+    try {
+      let data = this.refs.cropper.getCroppedCanvas().toDataURL()
+      this.setState({
+        imageData: data
+      })
+    }
+    catch(err) {
+      this.setState({
+        imageData: null
+      })
+    }
   }
 
   cropImage = () => {
@@ -30,8 +36,10 @@ class PhotoCropper extends React.Component{
   // }
 
   render(){
+    console.log(this.props)
     return (
       <div>
+        {this.props.image ?
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
@@ -50,6 +58,7 @@ class PhotoCropper extends React.Component{
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        : null }
       </div>
     )
   }

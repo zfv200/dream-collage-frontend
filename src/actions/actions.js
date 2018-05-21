@@ -1,5 +1,6 @@
 const API_URL = "http://localhost:3000/api/v1"
 const headers = { "Content-Type":"application/json"}
+let imageId = 0
 
 
 export function imageSearch(phrase, type="image"){
@@ -15,9 +16,9 @@ export function imageSearch(phrase, type="image"){
     .then(res=>res.json())
     .then(json=>{
       if (type==="image"){
-        dispatch(addImage(json.value[0]['contentUrl']))
+        json.value ? dispatch(addImage({url: json.value[0]['contentUrl'], id: ++imageId})) : null
       } else {
-        dispatch(addMood(json.value[0]['contentUrl']))
+        json.value ? dispatch(addMood({url: json.value[0]['contentUrl'], id: ++imageId})) : null
       }
     })
   }
@@ -36,7 +37,7 @@ export function analysisSearch(content){
     })
     .then(res=>res.json())
     .then(json=>{
-      if (json['keyphrases'].length > 0){
+      if (json['keyphrases'] && json['keyphrases'].length > 0){
         dispatch(addAnalysis(json))
       }
     })
@@ -124,6 +125,18 @@ export function resetCollageState(){
   }
 }
 
+export function hideHeader(){
+  return {
+    type: "HIDE_HEADER"
+  }
+}
+
+export function resetHeader(){
+  return {
+    type: "RESET_HEADER"
+  }
+}
+
 export function addKeywords(formState){
   return {
     type: "ADD_KEYWORDS",
@@ -143,20 +156,23 @@ export function addAnalysis(text){
 export function addImage(url){
   return {
     type: "ADD_IMAGE",
-    payload: url
+    url: url,
+    id: ++imageId
   }
 }
 
 export function addMood(url){
   return {
     type: "ADD_MOOD",
-    payload: url
+    url: url,
+    id: ++imageId
   }
 }
 
 export function addCroppedImage(imageData){
   return {
     type: "ADD_CROPPED_IMAGE",
-    payload: imageData
+    url: imageData,
+    id: ++imageId
   }
 }
