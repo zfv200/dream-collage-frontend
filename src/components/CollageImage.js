@@ -15,13 +15,13 @@ const style = {
 
 class CollageImage extends React.Component {
 
-  state={
-    imageStyle: {
-      width: "200px",
-      height: "200px",
-      opacity: "0.5",
-    }
-  }
+  // state={
+  //   imageStyle: {
+  //     width: "200px",
+  //     height: "200px",
+  //     opacity: "0.5",
+  //   }
+  // }
 
   // handleClick = () => {
   //   this.setState({
@@ -29,65 +29,65 @@ class CollageImage extends React.Component {
   //   })
   // }
 
-  widthPlus = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        width: `${parseInt(this.state.imageStyle.width) + 50}px`,
-      }
-    }) : null
-  }
+  // widthPlus = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       width: `${parseInt(this.state.imageStyle.width) + 50}px`,
+  //     }
+  //   }) : null
+  // }
+  //
+  // widthMinus = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       width: `${parseInt(this.state.imageStyle.width) - 50}px`,
+  //     }
+  //   }) : null
+  // }
 
-  widthMinus = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        width: `${parseInt(this.state.imageStyle.width) - 50}px`,
-      }
-    }) : null
-  }
+  // heightPlus = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       height: `${parseInt(this.state.imageStyle.height) + 50}px`
+  //     }
+  //   }) : null
+  // }
 
-  heightPlus = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        height: `${parseInt(this.state.imageStyle.height) + 50}px`
-      }
-    }) : null
-  }
+  // heightMinus = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       height: `${parseInt(this.state.imageStyle.height) - 50}px`
+  //     }
+  //   }) : null
+  // }
 
-  heightMinus = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        height: `${parseInt(this.state.imageStyle.height) - 50}px`
-      }
-    }) : null
-  }
+  // opacityUp = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       opacity: `${parseFloat(this.state.imageStyle.opacity) + .1}`
+  //     }
+  //   }) : null
+  // }
 
-  opacityUp = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        opacity: `${parseFloat(this.state.imageStyle.opacity) + .1}`
-      }
-    }) : null
-  }
-
-  opacityDown = () => {
-    this.props.selectedImage===this.props.id?
-    this.setState({
-      imageStyle: {
-        ...this.state.imageStyle,
-        opacity: `${parseFloat(this.state.imageStyle.opacity) - .1}`
-      }
-    }) : null
-  }
+  // opacityDown = () => {
+  //   this.props.selectedImage===this.props.id?
+  //   this.setState({
+  //     imageStyle: {
+  //       ...this.state.imageStyle,
+  //       opacity: `${parseFloat(this.state.imageStyle.opacity) - .1}`
+  //     }
+  //   }) : null
+  // }
 
   handleClick = () => {
     this.props.handleSelect(this.props.id)

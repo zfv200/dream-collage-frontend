@@ -15,14 +15,14 @@ class CollageContainer extends React.Component {
         display: "block"
       },
       selectedImage: null,
-      "1": { width: "200px", height: "200px", opacity: "0.5"},
-      2: { width: "200px", height: "200px", opacity: "0.5"},
-      3: { width: "200px", height: "200px", opacity: "0.5"},
-      4: { width: "200px", height: "200px", opacity: "0.5"},
-      5: { width: "200px", height: "200px", opacity: "0.5"},
-      6: { width: "200px", height: "200px", opacity: "0.5"},
-      7: { width: "200px", height: "200px", opacity: "0.5"},
-      8: { width: "200px", height: "200px", opacity: "0.5"},
+      "1": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "2": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "3": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "4": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "5": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "6": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "7": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "8": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
     }
 
     hideButtons = () => {
@@ -115,6 +115,107 @@ class CollageContainer extends React.Component {
       }
     }
 
+    roundCorners = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.state[key].borderRadius==="0%" ?
+          this.setState({
+            [key]: {
+              ...this.state[key],
+              borderRadius: "50%",
+            }
+          })
+          : this.setState({
+            [key]: {
+              ...this.state[key],
+              borderRadius: "0%",
+            }
+          })
+      }
+    }
+
+    blurPlus = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace(`${parseInt(this.state[key].WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].WebkitFilter.split(/\(/)[1]) + 1}px)`)
+          }
+        })
+      }
+    }
+
+    blurMinus = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace(`${parseInt(this.state[key].WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].WebkitFilter.split(/\(/)[1]) - 1}px)`)
+          }
+        })
+      }
+    }
+
+    grayscale = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.state[key].WebkitFilter.includes("grayscale(100%)") ?
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("grayscale(100%)", "grayscale(0%)"),
+          }
+        })
+      : this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("grayscale(0%)", "grayscale(100%)"),
+          }
+        })
+      }
+    }
+
+    invert = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.state[key].WebkitFilter.includes("invert(100%)") ?
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("invert(100%)", "invert(0%)"),
+          }
+        })
+      : this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("invert(0%)", "invert(100%)"),
+          }
+        })
+      }
+    }
+
+    sepia = () => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.state[key].WebkitFilter.includes("sepia(100%)") ?
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("sepia(100%)", "sepia(0%)"),
+          }
+        })
+      : this.setState({
+          [key]: {
+            ...this.state[key],
+            WebkitFilter: this.state[key].WebkitFilter.replace("sepia(0%)", "sepia(100%)"),
+          }
+        })
+      }
+    }
+
+
     displayImages(){
       return this.props.collageImages.slice().map(image=>{
         let num = image.id
@@ -139,6 +240,12 @@ class CollageContainer extends React.Component {
           <button style={this.state.buttonStyle} onClick={this.heightMinus}>height-</button>
           <button style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</button>
           <button style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</button>
+          <button style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</button>
+          <button style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</button>
+          <button style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</button>
+          <button style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</button>
+          <button style={this.state.buttonStyle} onClick={this.invert}>Invert</button>
+          <button style={this.state.buttonStyle} onClick={this.sepia}>Sepia</button>
           <div>
             {this.displayImages()}
           </div>
