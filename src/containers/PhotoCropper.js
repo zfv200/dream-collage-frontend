@@ -8,14 +8,18 @@ import { Grid, Button } from 'semantic-ui-react'
 class PhotoCropper extends React.Component{
   state={
     imageData: null,
-    croppedImage: null
+    croppedImage: null,
+    anyCrop: false
   }
 
   _crop(){
+    console.log("called")
+
     try {
       let data = this.refs.cropper.getCroppedCanvas().toDataURL()
       this.setState({
-        imageData: data
+        imageData: data,
+        anyCrop: true
       })
     }
     catch(err) {
@@ -36,7 +40,6 @@ class PhotoCropper extends React.Component{
   // }
 
   render(){
-    console.log(this.props)
     return (
       <div>
         {this.props.image ?
@@ -50,11 +53,15 @@ class PhotoCropper extends React.Component{
                 aspectRatio={16 / 9}
                 guides={false}
                 crop={this._crop.bind(this)} />
+              <br></br>
+
+              <Button color='teal' className="image-clicked" size="massive" fluid onClick={this.cropImage}>Crop</Button>
+              <Button color='teal' className="image-clicked" size="massive" fluid onClick={()=>this.props.addCroppedImage(this.state.croppedImage)}>Save Image</Button>
             </Grid.Column>
             <Grid.Column>
-              <Button size="massive" fluid onClick={this.cropImage}>Crop</Button>
-              <Button size="massive" fluid onClick={()=>this.props.addCroppedImage(this.state.croppedImage)}>Save Image</Button>
-              <img src={this.state.imageData}/>
+              <br></br>
+              <br></br>
+              <img className="preview" src={this.state.imageData}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>

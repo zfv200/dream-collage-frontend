@@ -10,6 +10,14 @@ header {
   background-color: #a1fcf9
 }
 
+/* button:hover {
+    border-top-color: pink;
+    background-color: pink;
+    color: #ccc;
+    opacity: 0.75;
+    -webkit-backface-visibility: hidden;
+} */
+
 /* body {
   background: #a1fcf9;
   background-color: #a1fcf9
@@ -52,7 +60,7 @@ html, body {
 
 .dream-image {
   width: 1000px;
-  height: 500px;
+  height: 800px;
 }
 
 .header-photo {
@@ -66,6 +74,14 @@ html, body {
   background-color: #a1fcf9;
 }
 
+.preview {
+  width: 800px;
+}
+
+/* .image-clicked:active {
+  background-color: red;
+} */
+
 
 /* .collage-image {
   -webkit-filter: blur(4px);
@@ -76,20 +92,41 @@ html, body {
 
 .text-area {
   font-style: italic;
+  text-align: center;
   width: 800px;
-  height: 400px;
+  height: 200px;
+  background-color: pink;
+  font-size: 60px;
+}
+
+.text-input {
+  font-style: italic;
+  text-align: center;
+  width: 800px;
+  height: 80;
   background-color: pink;
   font-size: 60px;
 }
 
 /* other */
 
+.main-container {
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+.fixer-container {
+  float: left;
+  position: relative;
+  left: -50%;
+}
 
 .box {
   margin: auto;
-  border-style: solid;
-  border-color: #ccffff;
+  /* border-style: solid;
+  border-color: #ccffff; */
   width: 1200px;
-  height: 700px;
+  height: 800px;
   /* background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/E8mQw973xilexniun/videoblocks-dreamy-liquid-ink-colors-blending-mixing-swirl-fluid_sjbzxacjg_thumbnail-full01.png'); */
 }

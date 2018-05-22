@@ -37,7 +37,7 @@ class CanvasContainer extends React.Component{
     return (
         <div className="canvas">
           <div className="box"></div>
-          <Button style={this.state.buttonStyle} onClick={this.handleClick}>Save Collage</Button>
+          <Button color='teal' style={this.state.buttonStyle} onClick={this.handleClick}>Save Collage</Button>
         </div>
     )
   }
