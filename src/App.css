@@ -1,3 +1,5 @@
+
+
 #root {
   background-color: #a1fcf9
 }
@@ -9,6 +11,11 @@
 header {
   background-color: #a1fcf9
 }
+
+.box {
+  background-color: #a1fcf9
+}
+
 
 /* button:hover {
     border-top-color: pink;
@@ -59,8 +66,9 @@ html, body {
 /* images: */
 
 .dream-image {
-  width: 1000px;
+  width: 1300px;
   height: 800px;
+  left: 20px;
 }
 
 .header-photo {
@@ -70,7 +78,8 @@ html, body {
 
 .dream-div {
   width: 1000px;
-  margin: auto;
+  margin: 0%;
+  /* margin: auto; */
   background-color: #a1fcf9;
 }
 
@@ -109,6 +118,13 @@ html, body {
 }
 
 /* other */
+
+/* .collage-area {
+  border-style: solid;
+  width: 1000px;
+  height: 600px;
+  left: 30px;
+} */
 
 .main-container {
   float: left;

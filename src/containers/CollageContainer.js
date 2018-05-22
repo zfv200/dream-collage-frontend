@@ -281,7 +281,7 @@ class CollageContainer extends React.Component {
             </Grid>
             </div>
           </div>
-          <div>
+          <div className="collage-area">
           </div>
           <CanvasContainer hideButtons={this.hideButtons} />
         </div>
