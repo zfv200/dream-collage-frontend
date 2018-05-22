@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 
@@ -29,6 +29,7 @@ class CanvasContainer extends React.Component{
     this.props.resetCropping()
     this.props.resetCollageState()
     this.props.endCollage()
+    // this.props.resetImageId()
     // this.props.resetHeader()
   }
 
@@ -55,4 +56,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId})(CanvasContainer)
