@@ -8,7 +8,12 @@ import { Button } from 'semantic-ui-react'
 
 class CropperContainer extends React.Component{
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   // componentDidMount(){
+  //   window.scrollTo(0, 0)
   //   this.props.analysisSearch(this.props.content)
   //      this.props.imageSearch(this.props.mood, "mood")
   // }
@@ -28,7 +33,8 @@ class CropperContainer extends React.Component{
         {this.props.cropping ?
         <div>
           <ImageList />
-          <Button onClick={()=>this.props.finishCropping()}>Save Collage</Button>
+          <br/><br/>
+          <Button color='teal' onClick={()=>this.props.finishCropping()}>Save Image Crops</Button>
         </div>
         : <CollageContainer />}
       </div>

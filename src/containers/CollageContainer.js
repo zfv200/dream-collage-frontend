@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import CollageImage from '../components/CollageImage'
 import CanvasContainer from './CanvasContainer'
+import { Grid, Button } from 'semantic-ui-react'
 
 class CollageContainer extends React.Component {
 
@@ -231,23 +232,56 @@ class CollageContainer extends React.Component {
     }
 
     render() {
-      console.log(this.state["1"])
       return (
         <div id="collage">
-          <button style={this.state.buttonStyle} onClick={this.widthPlus}>width+</button>
-          <button style={this.state.buttonStyle} onClick={this.widthMinus}>width-</button>
-          <button style={this.state.buttonStyle} onClick={this.heightPlus}>height+</button>
-          <button style={this.state.buttonStyle} onClick={this.heightMinus}>height-</button>
-          <button style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</button>
-          <button style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</button>
-          <button style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</button>
-          <button style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</button>
-          <button style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</button>
-          <button style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</button>
-          <button style={this.state.buttonStyle} onClick={this.invert}>Invert</button>
-          <button style={this.state.buttonStyle} onClick={this.sepia}>Sepia</button>
+          <div className="main-container">
+            <div className="fixer-container">
+            <Grid columns={12}>
+              <Grid.Row>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthPlus}>width+</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthMinus}>width+</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightPlus}>height+</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightMinus}>height-</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</Button>
+                </Grid.Column>
+                <Grid.Column>
+                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.invert}>Invert</Button>
+                </Grid.Column>
+                <Grid.Column>
+                <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.sepia}>Sepia</Button>
+                </Grid.Column>
+              </Grid.Row>
+              <Grid.Row>
+                {this.displayImages()}
+              </Grid.Row>
+            </Grid>
+            </div>
+          </div>
           <div>
-            {this.displayImages()}
           </div>
           <CanvasContainer hideButtons={this.hideButtons} />
         </div>
@@ -262,3 +296,16 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CollageContainer)
+
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthPlus}>width+</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthMinus}>width-</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightPlus}>height+</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightMinus}>height-</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.invert}>Invert</Button>
+// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.sepia}>Sepia</Button>

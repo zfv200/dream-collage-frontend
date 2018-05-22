@@ -8,10 +8,7 @@ const AddDream = (props) => {
 
   return (
     <div>
-      <Button animated='fade' onClick={()=>props.startDreaming()}>
-        <Button.Content visible>Add Dream</Button.Content>
-        <Button.Content hidden></Button.Content>
-      </Button>
+      <Button color='teal' onClick={()=>props.startDreaming()}>Add Dream</Button>
     </div>
   )
 }
