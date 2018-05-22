@@ -9,7 +9,7 @@ export function imageSearch(phrase, type="image"){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'derp'
+        'Ocp-Apim-Subscription-Key':'0be01a966e0f427184a88ae10d76af15'
       },
       method: 'get'
     })
@@ -25,10 +25,11 @@ export function imageSearch(phrase, type="image"){
 }
 
 export function analysisSearch(content){
+  console.log(content)
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
-        'X-RosetteAPI-Key':'derp',
+        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
         'Content-Type':'application/json',
         'Accept':'application/json',
       },
@@ -37,6 +38,7 @@ export function analysisSearch(content){
     })
     .then(res=>res.json())
     .then(json=>{
+      console.log(json)
       if (json['keyphrases'] && json['keyphrases'].length > 0){
         dispatch(addAnalysis(json))
       }
@@ -161,6 +163,13 @@ export function addImage(url){
   }
 }
 
+export function resetImageId(){
+  return {
+    type: "RESET_IMAGE_ID",
+    payload: 0
+  }
+}
+
 export function addMood(url){
   return {
     type: "ADD_MOOD",
@@ -173,6 +182,5 @@ export function addCroppedImage(imageData){
   return {
     type: "ADD_CROPPED_IMAGE",
     url: imageData,
-    id: ++imageId
   }
 }
