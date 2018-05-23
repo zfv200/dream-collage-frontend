@@ -97,7 +97,7 @@ class CollageImage extends React.Component {
   render(){
     return (
       <div>
-        <Rnd className="rnd" style={style} default={{ x: 0, y: 0, width: 200, height: 200, }} >
+        <Rnd className="rnd" style={style} default={{ x: 0, y: 0, width: 100, height: 100, }} >
           <div onClick={this.handleClick} style={ this.props.selectedImage===this.props.id ? {backgroundColor:"green"} : {}}>
             <img
             style={this.props.style}
