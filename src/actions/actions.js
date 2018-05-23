@@ -47,11 +47,12 @@ export function analysisSearch(content){
 }
 
 export function saveDream(userId, content, collage) {
+  console.log(collage)
   return (dispatch) => {
     fetch(API_URL + "/dreams", {
       headers: headers,
       method: "post",
-      body: JSON.stringify({user_id: userId, content: content})
+      body: JSON.stringify({user_id: userId, content: content, collage: collage})
     }).then(res=>res.json()).then(console.log)
   }
 }

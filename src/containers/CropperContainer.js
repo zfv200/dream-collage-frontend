@@ -12,20 +12,20 @@ class CropperContainer extends React.Component{
   //   window.scrollTo(0, 0)
   // }
   //
-  componentDidMount(){
-    window.scrollTo(0, 0)
-    this.props.analysisSearch(this.props.content)
-       this.props.imageSearch(this.props.mood, "mood")
-  }
-
-  componentWillReceiveProps(nextProps){
-    (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases) ?
-    nextProps.analyzedContent.keyphrases.map(entry=>{
-      if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
-        this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
-      }
-    }) : null
-  }
+  // componentDidMount(){
+  //   window.scrollTo(0, 0)
+  //   this.props.analysisSearch(this.props.content)
+  //      this.props.imageSearch(this.props.mood, "mood")
+  // }
+  //
+  // componentWillReceiveProps(nextProps){
+  //   (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases) ?
+  //   nextProps.analyzedContent.keyphrases.map(entry=>{
+  //     if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
+  //       this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
+  //     }
+  //   }) : null
+  // }
 
   render(){
     return (

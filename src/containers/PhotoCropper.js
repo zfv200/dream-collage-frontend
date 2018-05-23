@@ -48,7 +48,7 @@ class PhotoCropper extends React.Component{
             <Grid.Column>
               <Cropper
                 ref='cropper'
-                src={this.props.image.url}
+                src={this.props.image}
                 style={{height: 400, width: '100%'}}
                 aspectRatio={16 / 9}
                 guides={false}
@@ -61,7 +61,7 @@ class PhotoCropper extends React.Component{
             <Grid.Column>
               <br></br>
               <br></br>
-              <img className="preview" src={this.state.imageData}/>
+              <img className="preview" src={this.state.imageData} style={{WebkitFilter: 'grayscale(100%)'}}/>
             </Grid.Column>
           </Grid.Row>
         </Grid>
