@@ -3,25 +3,37 @@ import { connect } from 'react-redux'
 import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
+import screenshot from 'image-screenshot'
 
 class CanvasContainer extends React.Component{
 
   state={
-    buttonStyle: {display: 'block', margin: 'auto'},
-    boxStyle: {display: 'block'}
+    buttonStyle: {visibility: 'visible'},
+    boxStyle: {visibility: 'visibile'}
   }
 
   handleClick = () => {
     this.props.hideButtons()
     // this.props.hideHeader()
-    this.setState({buttonStyle: {display: 'none'}, boxStyle: {display: 'none'}})
-    const image = html2canvas(document.body).then(canvas=> {
+    this.setState({buttonStyle: {visibility: 'hidden'}, boxStyle: {visibility: 'hidden'}})
+    const image = html2canvas(document.getElementById('root')).then(canvas=> {
       this.props.addDream(Object.assign({},
           { content: this.props.content, collage: canvas.toDataURL('image/png') }
         ))
       this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
       this.reset()
     })
+    // const img = document.getElementsByClassName('collage-image')
+    // var arr = Array.prototype.slice.call(img)
+    // arr.map(image=>{
+    //   screenshot(img).then(url=>{
+    //     console.log('the base 64 is', url)
+    //   })
+    // })
+    // screenshot(img).then(url=>{
+    //   console.log('the base 64 data url of the image is:', url)
+    // })
+    // this.reset()
   }
 
   reset = () => {

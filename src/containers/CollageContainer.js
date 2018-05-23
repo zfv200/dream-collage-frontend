@@ -37,7 +37,7 @@ class CollageContainer extends React.Component {
     hideButtons = () => {
       this.setState({
         buttonStyle: {
-          display: "none"
+          visibility: "hidden"
         }
       })
     }

@@ -16,6 +16,10 @@ header {
   background-color: #a1fcf9
 }
 
+#collage {
+  background-color: #a1fcf9
+}
+
 
 /* button:hover {
     border-top-color: pink;
@@ -96,6 +100,11 @@ html, body {
   -webkit-filter: blur(4px);
   filter: blur(10px);
 } */
+
+.collage-image {
+  float: right;
+  position: absolute;
+}
 
 /* text */
 
