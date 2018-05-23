@@ -4,7 +4,6 @@ import PhotoCropper from './PhotoCropper'
 
 const imageList = (props) => {
   const renderPhotos = props.images.map(image=>{
-    console.log(image.url)
     return <PhotoCropper image={image.url}/>
   })
 

@@ -24,8 +24,34 @@ export function imageSearch(phrase, type="image"){
   }
 }
 
+export function analysisQuery(keyword){
+  console.log("called")
+  return (dispatch) => {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
+      headers: {
+        "Content-Type":"application/json",
+        "Accept":"application/json",
+        "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
+      },
+      method: 'get'
+    })
+    .then(res=>res.json())
+    .then(json=>{
+      console.log(json)
+      dispatch(addAnalysisLink(json.webPages.value[0].displayUrl))
+    })
+  }
+}
+
+export function addAnalysisLink(url){
+  console.log("yo!");
+  return {
+    type: "ADD_ANALYSIS_LINK",
+    payload: url
+  }
+}
+
 export function analysisSearch(content){
-  console.log(content)
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
@@ -38,16 +64,17 @@ export function analysisSearch(content){
     })
     .then(res=>res.json())
     .then(json=>{
-      console.log(json)
       if (json['keyphrases'] && json['keyphrases'].length > 0){
         dispatch(addAnalysis(json))
+        json['keyphrases'].map(noun=>{
+          analysisQuery(noun.phrase + "meaning in dreams")
+        })
       }
     })
   }
 }
 
 export function saveDream(userId, content, collage) {
-  console.log(collage)
   return (dispatch) => {
     fetch(API_URL + "/dreams", {
       headers: headers,

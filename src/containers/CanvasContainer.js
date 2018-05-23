@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId, analysisQuery } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
@@ -18,7 +18,7 @@ class CanvasContainer extends React.Component{
     this.setState({buttonStyle: {visibility: 'hidden'}, boxStyle: {visibility: 'hidden'}})
     const image = html2canvas(document.getElementById('root')).then(canvas=> {
       this.props.addDream(Object.assign({},
-          { content: this.props.content, collage: canvas.toDataURL('image/png') }
+          { content: this.props.content, collage: canvas.toDataURL('image/png'), analysis_links: this.props.analysis_links }
         ))
       this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
       this.reset()
@@ -46,7 +46,6 @@ class CanvasContainer extends React.Component{
   }
 
   render(){
-    console.log(this.props.backgroundImage)
     return (
         <div className="canvas">
           <div className="box"></div>
@@ -64,8 +63,10 @@ const mapStateToProps = (state) => {
     mood: state.collageReducer.mood,
     dreaming: state.userReducer.dreaming,
     dreams: state.dreamReducer.dreams,
-    userId: state.userReducer.userId
+    userId: state.userReducer.userId,
+    // rosetteRes: state.collageReducer.rosetteRes,
+    analysis_links: state.dreamReducer.analysis_links
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId, analysisQuery})(CanvasContainer)

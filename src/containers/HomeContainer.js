@@ -28,7 +28,8 @@ class HomeContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    dreaming: state.userReducer.dreaming
+    dreaming: state.userReducer.dreaming,
+    dreams: state.dreamReducer.dreams
   }
 }
 

@@ -13,8 +13,6 @@ class PhotoCropper extends React.Component{
   }
 
   _crop(){
-    console.log("called")
-
     try {
       let data = this.refs.cropper.getCroppedCanvas().toDataURL()
       this.setState({

@@ -8,10 +8,6 @@ import { Button } from 'semantic-ui-react'
 
 class CropperContainer extends React.Component{
 
-  // componentDidMount() {
-  //   window.scrollTo(0, 0)
-  // }
-  //
   // componentDidMount(){
   //   window.scrollTo(0, 0)
   //   this.props.analysisSearch(this.props.content)
