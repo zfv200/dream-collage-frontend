@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import PhotoCropper from './PhotoCropper'
 
 const imageList = (props) => {
+  
   const renderPhotos = props.images.map(image=>{
     return <PhotoCropper image={image.url}/>
   })

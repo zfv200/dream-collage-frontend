@@ -33,10 +33,6 @@ class PhotoCropper extends React.Component{
     })
   }
 
-  // saveImage = () => {
-  //   this.props.saveImage(this.state.croppedImage)
-  // }
-
   render(){
     return (
       <div>

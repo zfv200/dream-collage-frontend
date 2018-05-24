@@ -55,7 +55,6 @@ class CollageContainer extends React.Component {
     widthPlus = () => {
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
-        console.log(this.state.selectedImage)
         this.setState({
           [key]: {
             ...this.state[key],
@@ -305,16 +304,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(CollageContainer)
-
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthPlus}>width+</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthMinus}>width-</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightPlus}>height+</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightMinus}>height-</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.invert}>Invert</Button>
-// <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.sepia}>Sepia</Button>

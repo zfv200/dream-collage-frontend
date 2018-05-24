@@ -1,7 +1,6 @@
 import React from 'react'
 import { startDreaming } from '../actions/actions'
 import { connect } from 'react-redux'
-
 import { Button } from 'semantic-ui-react'
 
 const AddDream = (props) => {
