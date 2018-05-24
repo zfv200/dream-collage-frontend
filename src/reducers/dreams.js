@@ -13,7 +13,6 @@ export default function dreamReducer(state=defaultState, action){
     case "END_COLLAGE":
       return {...state, collaging: action.payload}
     case "ADD_ANALYSIS_LINK":
-      console.log("hi!!", action)
       return {...state, analysis_links: [...state.analysis_links, action.payload]}
     default:
       return state

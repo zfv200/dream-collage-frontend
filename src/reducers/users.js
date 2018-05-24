@@ -11,7 +11,6 @@ export default function userReducer(state=defaultState, action){
     case "LOGIN_USER":
       return {...state, currentUser: action.payload.user}
     case "BEGIN_DREAMING":
-      //later utilize this function for ending dreaming true maybe
       return {...state, dreaming: action.payload}
     case "FINISH_CROPPING":
       return {...state, cropping: action.payload}

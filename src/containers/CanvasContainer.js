@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId, analysisQuery } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
@@ -14,26 +14,18 @@ class CanvasContainer extends React.Component{
 
   handleClick = () => {
     this.props.hideButtons()
-    // this.props.hideHeader()
     this.setState({buttonStyle: {visibility: 'hidden'}, boxStyle: {visibility: 'hidden'}})
-    const image = html2canvas(document.getElementById('root')).then(canvas=> {
-      this.props.addDream(Object.assign({},
-          { content: this.props.content, collage: canvas.toDataURL('image/png'), analysis_links: this.props.analysis_links }
-        ))
-      this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
-      this.reset()
+    //hide redundant elements
+    const image = html2canvas(document.getElementById('root'))
+      .then(canvas=> {
+        //add dream to current session
+        this.props.addDream(Object.assign({},
+          { content: this.props.content, collage: canvas.toDataURL('image/png'), analysis_links: this.props.analysis_links }))
+        //save dream in backend
+        this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
+        //reset program flow
+        this.reset()
     })
-    // const img = document.getElementsByClassName('collage-image')
-    // var arr = Array.prototype.slice.call(img)
-    // arr.map(image=>{
-    //   screenshot(img).then(url=>{
-    //     console.log('the base 64 is', url)
-    //   })
-    // })
-    // screenshot(img).then(url=>{
-    //   console.log('the base 64 data url of the image is:', url)
-    // })
-    // this.reset()
   }
 
   reset = () => {
@@ -41,14 +33,13 @@ class CanvasContainer extends React.Component{
     this.props.resetCropping()
     this.props.resetCollageState()
     this.props.endCollage()
-    // this.props.resetImageId()
-    // this.props.resetHeader()
   }
 
   render(){
     return (
         <div className="canvas">
           <div className="box"></div>
+          <br></br><br></br>
           <Button color='teal' style={this.state.buttonStyle} onClick={this.handleClick}>Save Collage</Button>
         </div>
     )
@@ -57,16 +48,16 @@ class CanvasContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    backgroundImage: state.collageReducer.background_image,
+    // backgroundImage: state.collageReducer.background_image,
     content: state.collageReducer.content,
-    adjectives: state.collageReducer.adjectives,
-    mood: state.collageReducer.mood,
-    dreaming: state.userReducer.dreaming,
-    dreams: state.dreamReducer.dreams,
+    // adjectives: state.collageReducer.adjectives,
+    // mood: state.collageReducer.mood,
+    // dreaming: state.userReducer.dreaming,
+    // dreams: state.dreamReducer.dreams,
     userId: state.userReducer.userId,
     // rosetteRes: state.collageReducer.rosetteRes,
     analysis_links: state.dreamReducer.analysis_links
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, hideHeader, resetHeader, resetImageId, analysisQuery})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream})(CanvasContainer)
