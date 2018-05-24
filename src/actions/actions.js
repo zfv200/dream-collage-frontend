@@ -1,5 +1,6 @@
 const API_URL = "http://localhost:3000/api/v1"
 const headers = { "Content-Type":"application/json"}
+const google_api_key = "AIzaSyC3ANGllNjOOrepUiNw2gU7QZCWQzz95n4"
 let imageId = 0
 
 
@@ -23,28 +24,38 @@ export function imageSearch(phrase, type="image"){
     })
   }
 }
+//
+// export function analysisQuery(keyword){
+//   console.log("called")
+//   return (dispatch) => {
+//     fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
+//       headers: {
+//         "Content-Type":"application/json",
+//         "Accept":"application/json",
+//         "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
+//       },
+//       method: 'get'
+//     })
+//     .then(res=>res.json())
+//     .then(json=>{
+//       console.log(json)
+//       dispatch(addAnalysisLink(json.webPages.value[0].displayUrl))
+//     })
+//   }
+// }
 
 export function analysisQuery(keyword){
-  console.log("called")
   return (dispatch) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/customsearch/v1?key=${google_api_key}&cx=013578377964842865537:xas9o2osvcw&q=${keyword}`, {
       headers: {
         "Content-Type":"application/json",
-        "Accept":"application/json",
-        "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
       },
-      method: 'get'
-    })
-    .then(res=>res.json())
-    .then(json=>{
-      console.log(json)
-      dispatch(addAnalysisLink(json.webPages.value[0].displayUrl))
-    })
+      method: "get"
+    }).then(res=>res.json()).then(json=>console.log(json))
   }
 }
 
 export function addAnalysisLink(url){
-  console.log("yo!");
   return {
     type: "ADD_ANALYSIS_LINK",
     payload: url
@@ -65,11 +76,11 @@ export function analysisSearch(content){
     .then(res=>res.json())
     .then(json=>{
       if (json['keyphrases'] && json['keyphrases'].length > 0){
-        json['keyphrases'].map(noun=>{
-          // console.log(noun)
-          // imageSearch(noun.phrase)
-          analysisQuery(noun.phrase + "meaning in dreams")
-        })
+        // json['keyphrases'].map(noun=>{
+        //   // console.log(noun)
+        //   // imageSearch(noun.phrase)
+        //   analysisQuery(noun.phrase + "meaning in dreams")
+        // })
         dispatch(addAnalysis(json))
       }
     })

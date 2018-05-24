@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { imageSearch, analysisSearch, finishCropping } from '../actions/actions'
+import { imageSearch, analysisSearch, finishCropping, analysisQuery } from '../actions/actions'
 import ImageList from './ImageList'
 import CollageContainer from './CollageContainer'
 import { Button } from 'semantic-ui-react'
@@ -22,6 +22,13 @@ class CropperContainer extends React.Component{
     }) : null
   }
 
+  handleClick = () => {
+    this.props.rosetteRes.keyphrases.map(entry=>{
+      this.props.analysisQuery(entry.phrase + " meaning in dreams")
+    })
+    this.props.finishCropping()
+  }
+
   render(){
     return (
       <div>
@@ -29,7 +36,7 @@ class CropperContainer extends React.Component{
         <div>
           <ImageList />
           <br/><br/>
-          <Button color='teal' onClick={()=>this.props.finishCropping()}>Save Image Crops</Button>
+          <Button color='teal' onClick={this.handleClick}>Save Image Crops</Button>
         </div>
         : <CollageContainer />}
       </div>
@@ -44,8 +51,9 @@ const mapStateToProps = (state) => {
     mood: state.collageReducer.mood,
     analyzedContent: state.collageReducer.rosetteRes,
     images: state.collageReducer.images,
-    cropping: state.userReducer.cropping
+    cropping: state.userReducer.cropping,
+    rosetteRes: state.collageReducer.rosetteRes
   }
 }
 
-export default connect(mapStateToProps, {imageSearch, analysisSearch, finishCropping})(CropperContainer)
+export default connect(mapStateToProps, {imageSearch, analysisSearch, analysisQuery, finishCropping})(CropperContainer)
