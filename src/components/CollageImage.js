@@ -8,7 +8,6 @@ const style = {
 };
 
 class CollageImage extends React.Component {
-
   handleClick = () => {
     this.props.handleSelect(this.props.id)
   }

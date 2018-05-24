@@ -3,7 +3,6 @@ const headers = { "Content-Type":"application/json"}
 const google_api_key = "AIzaSyC3ANGllNjOOrepUiNw2gU7QZCWQzz95n4"
 let imageId = 0
 
-
 export function imageSearch(phrase, type="image"){
   return (dispatch) => {
     fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=${phrase}&count=1&safeSearch=Moderate`, {
@@ -87,15 +86,36 @@ export function analysisSearch(content){
   }
 }
 
-export function saveDream(userId, content, collage) {
+export function saveDream(userId, content) {
   return (dispatch) => {
     fetch(API_URL + "/dreams", {
       headers: headers,
       method: "post",
-      body: JSON.stringify({user_id: userId, content: content, collage: collage})
+      body: JSON.stringify({user_id: userId, content: content})
     }).then(res=>res.json()).then(console.log)
   }
 }
+
+export function saveImage(data, style, dreamId) {
+  return (dispatch) => {
+    fetch(API_URL + "/images", {
+      headers: headers,
+      method: "post",
+      body: JSON.stringify({
+        dream_id: dreamId,
+        image_data: data,
+        WebkitFilter: style.WebkitFilter,
+        opacity: style.opacity,
+        width: style.width,
+        height: style.height,
+        border_radius: style.borderRadius,
+        left: "20px",
+        bottom: "20px"
+      })
+    })
+  }
+}
+
 
 export function fetchDreams(){
   return (dispatch) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { addDream } from '../actions/actions'
-import { startCollage } from '../actions/actions'
+import { startCollage, saveDream } from '../actions/actions'
 import { addKeywords } from '../actions/actions'
 import { TextArea, Button } from 'semantic-ui-react'
 
@@ -25,6 +25,7 @@ class DreamForm extends React.Component{
     } else {
       this.props.addKeywords(this.state)
       this.props.startCollage()
+      this.props.saveDream(this.props.userId, this.state.content)
     }
   }
 
@@ -48,5 +49,11 @@ class DreamForm extends React.Component{
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    content: state.collageReducer.content,
+    userId: state.userReducer.userId,
+  }
+}
 
-export default connect(null, {addDream, startCollage, addKeywords})(DreamForm)
+export default connect(mapStateToProps, {addDream, startCollage, addKeywords, saveDream})(DreamForm)

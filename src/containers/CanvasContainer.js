@@ -1,9 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
+
+let dreamId = 45
 
 class CanvasContainer extends React.Component{
 
@@ -22,9 +24,13 @@ class CanvasContainer extends React.Component{
         this.props.addDream(Object.assign({},
           { content: this.props.content, collage: canvas.toDataURL('image/png'), analysis_links: this.props.analysis_links }))
         //save dream in backend
-        this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
+        // this.props.saveDream(this.props.userId, this.props.content)
         //reset program flow
         this.reset()
+    })
+    dreamId += 1
+    this.props.collageImages.map(image=>{
+      this.props.saveImage(image.url, this.props.state[image.id], dreamId)
     })
   }
 
@@ -48,16 +54,11 @@ class CanvasContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return {
-    // backgroundImage: state.collageReducer.background_image,
     content: state.collageReducer.content,
-    // adjectives: state.collageReducer.adjectives,
-    // mood: state.collageReducer.mood,
-    // dreaming: state.userReducer.dreaming,
-    // dreams: state.dreamReducer.dreams,
     userId: state.userReducer.userId,
-    // rosetteRes: state.collageReducer.rosetteRes,
     analysis_links: state.dreamReducer.analysis_links,
+    collageImages: state.collageReducer.cropped_images,
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage})(CanvasContainer)
