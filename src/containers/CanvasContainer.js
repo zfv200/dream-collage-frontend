@@ -56,7 +56,7 @@ const mapStateToProps = (state) => {
     // dreams: state.dreamReducer.dreams,
     userId: state.userReducer.userId,
     // rosetteRes: state.collageReducer.rosetteRes,
-    analysis_links: state.dreamReducer.analysis_links
+    analysis_links: state.dreamReducer.analysis_links,
   }
 }
 

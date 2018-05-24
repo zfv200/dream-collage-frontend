@@ -299,7 +299,7 @@ class CollageContainer extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    collageImages: state.collageReducer.cropped_images
+    collageImages: state.collageReducer.cropped_images,
   }
 }
 
