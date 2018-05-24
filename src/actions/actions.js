@@ -65,10 +65,12 @@ export function analysisSearch(content){
     .then(res=>res.json())
     .then(json=>{
       if (json['keyphrases'] && json['keyphrases'].length > 0){
-        dispatch(addAnalysis(json))
         json['keyphrases'].map(noun=>{
+          // console.log(noun)
+          // imageSearch(noun.phrase)
           analysisQuery(noun.phrase + "meaning in dreams")
         })
+        dispatch(addAnalysis(json))
       }
     })
   }

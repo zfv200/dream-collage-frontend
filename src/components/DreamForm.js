@@ -21,8 +21,12 @@ class DreamForm extends React.Component{
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.addKeywords(this.state)
-    this.props.startCollage()
+    if (this.state.adjectives.includes("calm") || this.state.mood.includes("calm")){
+      alert("sorry, 'calm' skews search results too much! Please think of another word.")
+    } else {
+      this.props.addKeywords(this.state)
+      this.props.startCollage()
+    }
   }
 
   render(){

@@ -8,20 +8,21 @@ import { Button } from 'semantic-ui-react'
 
 class CropperContainer extends React.Component{
 
-  // componentDidMount(){
-  //   window.scrollTo(0, 0)
-  //   this.props.analysisSearch(this.props.content)
-  //      this.props.imageSearch(this.props.mood, "mood")
-  // }
-  //
-  // componentWillReceiveProps(nextProps){
-  //   (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases) ?
-  //   nextProps.analyzedContent.keyphrases.map(entry=>{
-  //     if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
-  //       this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
-  //     }
-  //   }) : null
-  // }
+  componentDidMount(){
+    // this.props.addImage("https://static.tumblr.com/9d2ae0569349fb874150b0815521299c/rjcnp1w/AONoly8cn/tumblr_static_filename_640_v2.jpg")
+    window.scrollTo(0, 0)
+    this.props.analysisSearch(this.props.content)
+       this.props.imageSearch(this.props.mood, "mood")
+  }
+
+  componentWillReceiveProps(nextProps){
+    (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases[0]!=="") ?
+    nextProps.analyzedContent.keyphrases.map(entry=>{
+      if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
+        this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
+      }
+    }) : null
+  }
 
   render(){
     return (
