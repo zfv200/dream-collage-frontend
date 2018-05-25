@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
 
-let dreamId = 45
+let dreamId = 78
 
 class CanvasContainer extends React.Component{
 

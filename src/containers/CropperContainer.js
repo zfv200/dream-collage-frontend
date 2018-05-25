@@ -30,6 +30,7 @@ class CropperContainer extends React.Component{
   }
 
   render(){
+    console.log(this.props.dreams);
     return (
       <div>
         {this.props.cropping ?
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => {
     analyzedContent: state.collageReducer.rosetteRes,
     images: state.collageReducer.images,
     cropping: state.userReducer.cropping,
-    rosetteRes: state.collageReducer.rosetteRes
+    rosetteRes: state.collageReducer.rosetteRes,
+    dreams: state.dreamReducer.dreams
   }
 }
 
