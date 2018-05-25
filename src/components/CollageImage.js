@@ -17,20 +17,8 @@ class CollageImage extends React.Component {
     // this.y = this.position.top
 
     this.state = {
-      image: null,
-      position: null,
       x: null,
       y: null,
-    }
-  }
-
-  componentDidMount(){
-    const image = document.getElementById("yo")
-    if (image) {
-      const position = image.getBoundingClientRect()
-      const x = this.position.left
-      const y = this.position.top
-      debugger;
     }
   }
 
@@ -38,14 +26,25 @@ class CollageImage extends React.Component {
     this.props.handleSelect(this.props.id)
   }
 
+  handleDrag = () => {
+    const image = document.getElementById(`${this.props.id}`)
+    const position = image.getBoundingClientRect()
+    const x = position.left
+    const y = position.top
+    this.setState({
+      x: x,
+      y: y
+    })
+    this.props.setPosition(this.state.x, this.state.y)
+  }
+
 //for the morning--try using the x and the y of the Rnd component to position stuff and draw it out again.
   render(){
-    console.log(this.state)
     return (
       <div>
-        <Rnd className="rnd" style={style} default={{ x: 0, y: 0, width: 100, height: 100, }} >
+        <Rnd onDrag={this.handleDrag} className="rnd" style={style} default={{ x: 0, y: 0, width: 100, height: 100, }} >
           <div onClick={this.handleClick} style={ this.props.selectedImage===this.props.id ? {backgroundColor:"green"} : {}}>
-            <img id="yo" draggable="true" style={this.props.style} className="collage-image" src={this.props.image}/>
+            <img id={this.props.id} draggable="true" style={this.props.style} className="collage-image" src={this.props.image}/>
           </div>
         </Rnd>
       </div>

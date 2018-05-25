@@ -16,22 +16,22 @@ class CollageContainer extends React.Component {
         display: "block"
       },
       selectedImage: null,
-      "1": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "2": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "3": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "4": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "5": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "6": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "7": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "8": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "9": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "10": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "11": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "12": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "13": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "14": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "15": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
-      "16": { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "1": { left: null, top: null, style: { width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'} },
+      "2": { posLeft: "20px", posTop: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "3": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "4": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "5": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "6": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "7": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "8": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "9": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "10": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "11": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "12": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "13": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "14": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "15": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
+      "16": { left: "20px", top: "20px", width: "200px", height: "200px", opacity: "0.5", borderRadius: "0%", WebkitFilter: 'blur(0px) grayscale(0%) invert(0%) sepia(0%)'},
     }
 
     hideButtons = () => {
@@ -58,7 +58,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            width: `${parseInt(this.state[key].width) + 50}px`,
+            style: {
+              ...this.state[key].style,
+              width: `${parseInt(this.state[key].style.width) + 50}px`,
+            }
           }
         })
       }
@@ -70,7 +73,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            width: `${parseInt(this.state[key].width) - 50}px`,
+            style:{
+              ...this.state[key].style,
+              width: `${parseInt(this.state[key].style.width) - 50}px`,
+            }
           }
         })
       }
@@ -82,7 +88,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            height: `${parseInt(this.state[key].height) + 50}px`,
+            style:{
+              ...this.state[key].style,
+              height: `${parseInt(this.state[key].style.height) + 50}px`,
+            }
           }
         })
       }
@@ -94,7 +103,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            height: `${parseInt(this.state[key].height) - 50}px`,
+            style:{
+              ...this.state[key].style,
+              height: `${parseInt(this.state[key].style.height) - 50}px`,
+            }
           }
         })
       }
@@ -106,7 +118,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            opacity: `${parseFloat(this.state[key].opacity) + .1}`,
+            style:{
+              ...this.state[key].style,
+              opacity: `${parseFloat(this.state[key].style.opacity) + .1}`,
+            }
           }
         })
       }
@@ -118,7 +133,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            opacity: `${parseFloat(this.state[key].opacity) - .1}`,
+            style:{
+              ...this.state[key].style,
+              opacity: `${parseFloat(this.state[key].style.opacity) - .1}`,
+            }
           }
         })
       }
@@ -127,17 +145,23 @@ class CollageContainer extends React.Component {
     roundCorners = () => {
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
-        this.state[key].borderRadius==="0%" ?
+        this.state[key].style.borderRadius==="0%" ?
           this.setState({
             [key]: {
               ...this.state[key],
-              borderRadius: "50%",
+              style:{
+                ...this.state[key].style,
+                borderRadius: "50%",
+              }
             }
           })
           : this.setState({
             [key]: {
               ...this.state[key],
-              borderRadius: "0%",
+              style:{
+                ...this.state[key].style,
+                borderRadius: "0%",
+              }
             }
           })
       }
@@ -149,7 +173,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace(`${parseInt(this.state[key].WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].WebkitFilter.split(/\(/)[1]) + 1}px)`)
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace(`${parseInt(this.state[key].style.WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].style.WebkitFilter.split(/\(/)[1]) + 1}px)`)
+            }
           }
         })
       }
@@ -161,7 +188,10 @@ class CollageContainer extends React.Component {
         this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace(`${parseInt(this.state[key].WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].WebkitFilter.split(/\(/)[1]) - 1}px)`)
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace(`${parseInt(this.state[key].style.WebkitFilter.split(/\(/)[1])}px)`, `${parseInt(this.state[key].style.WebkitFilter.split(/\(/)[1]) - 1}px)`)
+            }
           }
         })
       }
@@ -170,17 +200,23 @@ class CollageContainer extends React.Component {
     grayscale = () => {
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
-        this.state[key].WebkitFilter.includes("grayscale(100%)") ?
+        this.state[key].style.WebkitFilter.includes("grayscale(100%)") ?
         this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("grayscale(100%)", "grayscale(0%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("grayscale(100%)", "grayscale(0%)"),
+            }
           }
         })
       : this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("grayscale(0%)", "grayscale(100%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("grayscale(0%)", "grayscale(100%)"),
+            }
           }
         })
       }
@@ -189,17 +225,23 @@ class CollageContainer extends React.Component {
     invert = () => {
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
-        this.state[key].WebkitFilter.includes("invert(100%)") ?
+        this.state[key].style.WebkitFilter.includes("invert(100%)") ?
         this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("invert(100%)", "invert(0%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("invert(100%)", "invert(0%)"),
+            }
           }
         })
       : this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("invert(0%)", "invert(100%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("invert(0%)", "invert(100%)"),
+            }
           }
         })
       }
@@ -208,17 +250,36 @@ class CollageContainer extends React.Component {
     sepia = () => {
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
-        this.state[key].WebkitFilter.includes("sepia(100%)") ?
+        this.state[key].style.WebkitFilter.includes("sepia(100%)") ?
         this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("sepia(100%)", "sepia(0%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("sepia(100%)", "sepia(0%)"),
+            }
           }
         })
       : this.setState({
           [key]: {
             ...this.state[key],
-            WebkitFilter: this.state[key].WebkitFilter.replace("sepia(0%)", "sepia(100%)"),
+            style:{
+              ...this.state[key].style,
+              WebkitFilter: this.state[key].style.WebkitFilter.replace("sepia(0%)", "sepia(100%)"),
+            }
+          }
+        })
+      }
+    }
+
+    setPosition = (x, y) => {
+      if (this.state.selectedImage!==null) {
+        let key = this.state.selectedImage.toString()
+        this.setState({
+          [key]: {
+            ...this.state[key],
+            left: `${x}px`,
+            top: `${y}px`
           }
         })
       }
@@ -229,12 +290,13 @@ class CollageContainer extends React.Component {
       return this.props.collageImages.slice().map(image=>{
         let num = image.id
         return <CollageImage
+                setPosition={this.setPosition}
                 handleSelect={this.handleSelect}
                 selectedImage={this.state.selectedImage}
                 id={image.id}
                 buttonStyle={this.state.buttonStyle}
                 largerImage={this.largerImage}
-                style={this.state[num.toString()]}
+                style={this.state[num.toString()].style}
                 image={image.url}/>
       })
     }
