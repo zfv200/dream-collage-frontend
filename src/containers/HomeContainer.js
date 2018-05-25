@@ -13,7 +13,6 @@ class HomeContainer extends React.Component{
   }
 
   render(){
-    console.log(this.props.dreams)
     return (
       <div>
         {!this.props.dreaming ?
