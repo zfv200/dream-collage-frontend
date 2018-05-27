@@ -13,12 +13,14 @@ class Dream extends React.Component {
   }
 
   displayCollage(){
-    return this.props.dream.images.map(image=>{
-      return <img src={image.image_data} style={{WebkitFilter: image.WebkitFilter, borderRadius: image.border_radius, height: image.height,
-        left: `${parseInt(image.left) / window.innerWidth * 100}%`,
-        top: `${parseInt(image.top) / window.innerHeight * 100}%`,
-        opacity: image.opacity, width: image.width, zIndex: image.z_index, position: "absolute"}}/>
-    })
+    if (this.props.dream.images) {
+      return this.props.dream.images.map(image=>{
+        return <img src={image.image_data} style={{WebkitFilter: image.WebkitFilter, borderRadius: image.border_radius, height: image.height,
+          left: `${parseInt(image.left) / window.innerWidth * 100}%`,
+          top: `${parseInt(image.top) / window.innerHeight * 100}%`,
+          opacity: image.opacity, width: image.width, zIndex: image.z_index, position: "absolute"}}/>
+      })
+    }
   }
 
 

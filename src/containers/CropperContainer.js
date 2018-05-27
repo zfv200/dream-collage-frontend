@@ -14,7 +14,7 @@ class CropperContainer extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases[0]!=="") ?
+    (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases && nextProps.analyzedContent.keyphrases[0]!=="") ?
       nextProps.analyzedContent.keyphrases.map(entry=>{
         if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
           this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
@@ -23,9 +23,11 @@ class CropperContainer extends React.Component{
   }
 
   handleClick = () => {
-    this.props.rosetteRes.keyphrases.map(entry=>{
-      this.props.analysisQuery(entry.phrase + " meaning in dreams")
-    })
+    if (this.props.rosetteRes.keyphrases) {
+      this.props.rosetteRes.keyphrases.map(entry=>{
+        this.props.analysisQuery(entry.phrase + " meaning in dreams")
+      })
+    }
     this.props.finishCropping()
   }
 

@@ -15,6 +15,7 @@ export function imageSearch(phrase, type="image"){
     })
     .then(res=>res.json())
     .then(json=>{
+      console.log(json)
       if (type==="image"){
         json.value ? dispatch(addImage({url: json.value[0]['contentUrl'], id: ++imageId})) : null
       } else {
@@ -132,10 +133,12 @@ export function fetchDreams(){
       headers: headers,
       method: 'get',
     }).then(res=>res.json()).then(json=>{
-      const dreams = json.data.filter(dream=>{
-        return dream.attributes['user-id']===1
-      })
-      dreams.map(dream=>{
+      // const dreams = json.data.filter(dream=>{
+      //   return dream.attributes['user-id']===1
+      // })
+      // dreams.map(dream=>{
+      json.data.map(dream=>{
+        dream.attributes.id = dream.id
         dispatch(addDream(dream.attributes))
       })
     })

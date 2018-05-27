@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
 
-let dreamId = 114
+// let dreamId = 114
 
 class CanvasContainer extends React.Component{
 
@@ -28,13 +28,13 @@ class CanvasContainer extends React.Component{
         //reset program flow
         this.reset()
     })
-    dreamId += 1
+    // dreamId += 1
     let zIndex = 0
     this.props.collageImages.map(image=>{
-      this.props.saveImage(image.url, this.props.state[image.id], dreamId, zIndex++)
+      this.props.saveImage(image.url, this.props.state[image.id], this.props.nextDreamId, zIndex++)
     })
     this.props.analysis_links.map(result=>{
-      this.props.postAnalysis(result.url, result.name, dreamId)
+      postAnalysis(result.url, result.name, this.props.nextDreamId)
     })
   }
 
@@ -47,6 +47,7 @@ class CanvasContainer extends React.Component{
   }
 
   render(){
+    console.log(this.props.nextDreamId)
     return (
         <div className="canvas">
           <div className="box"></div>
@@ -63,7 +64,8 @@ const mapStateToProps = (state) => {
     userId: state.userReducer.userId,
     analysis_links: state.dreamReducer.analysis_links,
     collageImages: state.collageReducer.cropped_images,
+    nextDreamId: state.dreamReducer.nextDreamId
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage, removeAnalyses, postAnalysis})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage, removeAnalyses})(CanvasContainer)
