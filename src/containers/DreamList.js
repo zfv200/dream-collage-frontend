@@ -7,7 +7,6 @@ class DreamList extends React.Component{
   displayDreams(){
     let dreams = this.props.dreams.reverse()
     return dreams.map(dreamObj=>{
-      console.log("hi", dreamObj)
       return <Dream key={dreamObj.id} dream={dreamObj}/>
     })
   }

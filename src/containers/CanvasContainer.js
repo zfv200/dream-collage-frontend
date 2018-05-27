@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage, removeAnalyses, postAnalysis} from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
 
-let dreamId = 97
+let dreamId = 114
 
 class CanvasContainer extends React.Component{
 
@@ -33,12 +33,16 @@ class CanvasContainer extends React.Component{
     this.props.collageImages.map(image=>{
       this.props.saveImage(image.url, this.props.state[image.id], dreamId, zIndex++)
     })
+    this.props.analysis_links.map(result=>{
+      this.props.postAnalysis(result.url, result.name, dreamId)
+    })
   }
 
   reset = () => {
     this.props.endDreaming()
     this.props.resetCropping()
     this.props.resetCollageState()
+    this.props.removeAnalyses()
     this.props.endCollage()
   }
 
@@ -62,4 +66,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, saveImage, removeAnalyses, postAnalysis})(CanvasContainer)

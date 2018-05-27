@@ -1,6 +1,16 @@
 import React from 'react'
+import DreamLinks from './DreamLinks'
 
 class Dream extends React.Component {
+  state={
+    interpreted: false
+  }
+
+  handleClick = () => {
+    this.setState({
+      interpreted: !this.state.interpreted
+    })
+  }
 
   displayCollage(){
     return this.props.dream.images.map(image=>{
@@ -15,8 +25,13 @@ class Dream extends React.Component {
   render(){
     return (
       <div>
+        {!this.state.interpreted ?
+        <div>
         {this.displayCollage()}
         <h1>{this.props.dream.content}</h1>
+        <button onClick={this.handleClick}>See analysis!</button>
+        </div>
+        : <DreamLinks goBack={this.handleClick} analyses={this.props.dream.analyses}/>}
       </div>
     )
   }

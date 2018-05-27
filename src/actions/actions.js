@@ -23,41 +23,49 @@ export function imageSearch(phrase, type="image"){
     })
   }
 }
-//
-// export function analysisQuery(keyword){
-//   console.log("called")
-//   return (dispatch) => {
-//     fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
-//       headers: {
-//         "Content-Type":"application/json",
-//         "Accept":"application/json",
-//         "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
-//       },
-//       method: 'get'
-//     })
-//     .then(res=>res.json())
-//     .then(json=>{
-//       console.log(json)
-//       dispatch(addAnalysisLink(json.webPages.value[0].displayUrl))
-//     })
-//   }
-// }
+
+export function postAnalysis(url, name, dreamId){
+  fetch(API_URL + "/analyses", {
+    headers: headers,
+    method: 'post',
+    body: JSON.stringify({url: url, name: name, dream_id: dreamId})
+  }).then(res=>res.json()).then(json=>console.log(json))
+}
 
 export function analysisQuery(keyword){
+  console.log("called")
   return (dispatch) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/customsearch/v1?key=${google_api_key}&cx=013578377964842865537:xas9o2osvcw&q=${keyword}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
       headers: {
         "Content-Type":"application/json",
+        "Accept":"application/json",
+        "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
       },
-      method: "get"
-    }).then(res=>res.json()).then(json=>console.log(json))
+      method: 'get'
+    })
+    .then(res=>res.json())
+    .then(json=>{
+      console.log(json)
+      dispatch(addAnalysisLink({url: json.webPages.value[0].url, name: json.webPages.value[0].name}))
+    })
   }
 }
 
-export function addAnalysisLink(url){
+// export function analysisQuery(keyword){
+//   return (dispatch) => {
+//     fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/customsearch/v1?key=${google_api_key}&cx=013578377964842865537:xas9o2osvcw&q=${keyword}`, {
+//       headers: {
+//         "Content-Type":"application/json",
+//       },
+//       method: "get"
+//     }).then(res=>res.json()).then(json=>console.log(json))
+//   }
+// }
+
+export function addAnalysisLink(result){
   return {
     type: "ADD_ANALYSIS_LINK",
-    payload: url
+    payload: result
   }
 }
 
@@ -186,6 +194,12 @@ export function endCollage(){
 export function resetCollageState(){
   return {
     type: "RESET_COLLAGE_STATE",
+  }
+}
+
+export function removeAnalyses(){
+  return {
+    type: "EMPTY_LINKS"
   }
 }
 
