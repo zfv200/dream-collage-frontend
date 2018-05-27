@@ -96,7 +96,7 @@ export function saveDream(userId, content) {
   }
 }
 
-export function saveImage(data, stateObj, dreamId) {
+export function saveImage(data, stateObj, dreamId, zIndex) {
   return (dispatch) => {
     fetch(API_URL + "/images", {
       headers: headers,
@@ -110,7 +110,8 @@ export function saveImage(data, stateObj, dreamId) {
         height: stateObj.style.height,
         border_radius: stateObj.style.borderRadius,
         left: stateObj.left,
-        top: stateObj.top
+        top: stateObj.top,
+        z_index: zIndex
       })
     })
   }

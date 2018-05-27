@@ -273,6 +273,7 @@ class CollageContainer extends React.Component {
     }
 
     setPosition = (x, y) => {
+      console.log(x,y)
       if (this.state.selectedImage!==null) {
         let key = this.state.selectedImage.toString()
         this.setState({

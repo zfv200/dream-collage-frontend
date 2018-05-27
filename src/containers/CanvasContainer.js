@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
 
-let dreamId = 78
+let dreamId = 97
 
 class CanvasContainer extends React.Component{
 
@@ -29,8 +29,9 @@ class CanvasContainer extends React.Component{
         this.reset()
     })
     dreamId += 1
+    let zIndex = 0
     this.props.collageImages.map(image=>{
-      this.props.saveImage(image.url, this.props.state[image.id], dreamId)
+      this.props.saveImage(image.url, this.props.state[image.id], dreamId, zIndex++)
     })
   }
 
