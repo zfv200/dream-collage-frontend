@@ -109,6 +109,12 @@ export function postCollage(dreamId, text) {
   }
 }
 
+export function removeLinks(){
+  return {
+    type: "REMOVE_LINKS"
+  }
+}
+
 export function fetchDreams(){
   return (dispatch) => {
     fetch(API_URL + "/dreams", {
@@ -118,7 +124,7 @@ export function fetchDreams(){
       const dreams = json.data.filter(dream=>{
         return dream.attributes['user-id']===1
       })
-      dreams.reverse().map(dream=>{
+      dreams.map(dream=>{
         dream.attributes.id = dream.id
         dispatch(addDream(dream.attributes))
       })

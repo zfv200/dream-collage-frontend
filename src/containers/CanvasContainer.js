@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, postAnalysis, postCollage } from '../actions/actions'
+import { addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, postAnalysis, postCollage, removeLinks } from '../actions/actions'
 import { Button } from 'semantic-ui-react'
 import html2canvas from 'html2canvas'
 import screenshot from 'image-screenshot'
@@ -24,17 +24,17 @@ class CanvasContainer extends React.Component{
       .then(canvas=> {
         //add dream to current session
         this.props.addDream(Object.assign({},
-          { content: this.props.content, collage: canvas.toDataURL('image/png'), analysis_links: this.props.analysis_links }))
+          { content: this.props.content, collage: canvas.toDataURL('image/png'), analyses: this.props.analysis_links }))
         //save dream in backend
         this.props.postCollage(this.props.currentDreamId, canvas.toDataURL('image/png'))
         // this.props.saveDream(this.props.userId, this.props.content, canvas.toDataURL('image/png'))
         //reset program flow
+        let links = this.props.analysis_links
+        // let nextDreamId = this.state.nextDreamId
+        links.map(result=>{
+          postAnalysis(result.url, result.name, this.props.currentDreamId)
+        })
         this.reset()
-    })
-    let links = this.props.analysis_links
-    // let nextDreamId = this.state.nextDreamId
-    links.map(result=>{
-      postAnalysis(result.url, result.name, this.props.currentDreamId)
     })
   }
 
@@ -43,6 +43,7 @@ class CanvasContainer extends React.Component{
     this.props.resetCropping()
     this.props.resetCollageState()
     this.props.endCollage()
+    this.props.removeLinks()
   }
 
   render(){
@@ -73,4 +74,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, postCollage})(CanvasContainer)
+export default connect(mapStateToProps, {addDream, endDreaming, resetCropping, endCollage, resetCollageState, saveDream, postCollage, removeLinks})(CanvasContainer)

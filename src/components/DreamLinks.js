@@ -1,6 +1,7 @@
 import React from 'react'
 
 const DreamLinks = (props) => {
+  console.log(props)
 
   const renderLinks = props.links.map(link=>{
     return <h1><a target="_blank" href={link.url}>{link.name}</a></h1>
