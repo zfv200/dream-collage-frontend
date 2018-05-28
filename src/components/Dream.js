@@ -1,13 +1,19 @@
 import React from 'react'
 
-const Dream = ({dream}) => {
-  return (
-    <div className="dream-div">
-      <img className="dream-image" src={dream.collage}/>
-      <h1>{dream.content}</h1>
-      <br></br>
-    </div>
-  )
+class Dream extends React.Component {
+
+  render(){
+    console.log(this.props.dream, this.props.dream.collage.length)
+    return (
+      <div className="dream-div">
+        {this.props.dream.collage.length===undefined ?
+        <img className="dream-image" src={this.props.dream.collage.image_url}/>
+        : <img className="dream-image" src={this.props.dream.collage}/> }
+        <h1>{this.props.dream.content}</h1>
+        <br></br>
+      </div>
+    )
+  }
 }
 
 export default Dream

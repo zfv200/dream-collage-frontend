@@ -5,7 +5,7 @@ import Dream from '../components/Dream'
 class DreamList extends React.Component{
 
   displayDreams(){
-    let dreams = this.props.dreams.reverse()
+    let dreams = this.props.dreams
     return dreams.map(dreamObj=>{
       return <Dream key={dreamObj.id} dream={dreamObj}/>
     })

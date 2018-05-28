@@ -21,11 +21,13 @@ class CropperContainer extends React.Component{
       }
     }) : null
   }
-
+  
   handleClick = () => {
-    this.props.rosetteRes.keyphrases.map(entry=>{
-      this.props.analysisQuery(entry.phrase + " meaning in dreams")
-    })
+    if (this.props.rosetteRes.keyphrases) {
+      this.props.rosetteRes.keyphrases.map(entry=>{
+        this.props.analysisQuery(entry.phrase + " meaning in dreams")
+      })
+    }
     this.props.finishCropping()
   }
 
