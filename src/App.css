@@ -75,6 +75,10 @@ html, body {
   left: 20px;
 }
 
+.link-div {
+  height: 500px;
+}
+
 .header-photo {
   height: 300px;
   width: 100%;

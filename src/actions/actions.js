@@ -10,7 +10,7 @@ export function imageSearch(phrase, type="image"){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'0be01a966e0f427184a88ae10d76af15'
+        'Ocp-Apim-Subscription-Key':'81fe67ab45df4cddb22122581dc358f6'
       },
       method: 'get'
     })
@@ -24,36 +24,36 @@ export function imageSearch(phrase, type="image"){
     })
   }
 }
-//
-// export function analysisQuery(keyword){
-//   console.log("called")
-//   return (dispatch) => {
-//     fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
-//       headers: {
-//         "Content-Type":"application/json",
-//         "Accept":"application/json",
-//         "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
-//       },
-//       method: 'get'
-//     })
-//     .then(res=>res.json())
-//     .then(json=>{
-//       console.log(json)
-//       dispatch(addAnalysisLink(json.webPages.value[0].displayUrl))
-//     })
-//   }
-// }
 
 export function analysisQuery(keyword){
+  console.log("called")
   return (dispatch) => {
-    fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/customsearch/v1?key=${google_api_key}&cx=013578377964842865537:xas9o2osvcw&q=${keyword}`, {
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.cognitive.microsoft.com/bing/v7.0/search?q=${keyword}`, {
       headers: {
         "Content-Type":"application/json",
+        "Accept":"application/json",
+        "Ocp-Apim-Subscription-Key":"81fe67ab45df4cddb22122581dc358f6"
       },
-      method: "get"
-    }).then(res=>res.json()).then(json=>console.log(json))
+      method: 'get'
+    })
+    .then(res=>res.json())
+    .then(json=>{
+      console.log(json)
+      dispatch(addAnalysisLink({url: json.webPages.value[0].url, name: json.webPages.value[0].name}))
+    })
   }
 }
+
+// export function analysisQuery(keyword){
+//   return (dispatch) => {
+//     fetch(`https://cors-anywhere.herokuapp.com/https://www.googleapis.com/customsearch/v1?key=${google_api_key}&cx=013578377964842865537:xas9o2osvcw&q=${keyword}`, {
+//       headers: {
+//         "Content-Type":"application/json",
+//       },
+//       method: "get"
+//     }).then(res=>res.json()).then(json=>console.log(json))
+//   }
+// }
 
 export function addAnalysisLink(url){
   return {
@@ -87,13 +87,31 @@ export function analysisSearch(content){
   }
 }
 
-export function saveDream(userId, content, collage) {
+export function saveDream(userId, content) {
   return (dispatch) => {
     fetch(API_URL + "/dreams", {
       headers: headers,
       method: "post",
-      body: JSON.stringify({user_id: userId, content: content, collage: collage})
-    }).then(res=>res.json()).then(console.log)
+      body: JSON.stringify({user_id: userId, content: content})
+    }).then(res=>res.json()).then(json=>{
+      dispatch(grabDreamId(json.data.id))
+    })
+  }
+}
+
+export function postCollage(dreamId, text) {
+  return (dispatch) => {
+    fetch(API_URL + "/collages", {
+      headers: headers,
+      method: "post",
+      body: JSON.stringify({dream_id: dreamId, image_url: text})
+    })
+  }
+}
+
+export function removeLinks(){
+  return {
+    type: "REMOVE_LINKS"
   }
 }
 
@@ -107,10 +125,26 @@ export function fetchDreams(){
         return dream.attributes['user-id']===1
       })
       dreams.map(dream=>{
+        dream.attributes.id = dream.id
         dispatch(addDream(dream.attributes))
       })
     })
   }
+}
+
+export function grabDreamId(id){
+  return {
+    type: "SET_DREAM_ID",
+    payload: parseInt(id)
+  }
+}
+
+export function postAnalysis(url, name, dreamId){
+  fetch(API_URL + "/analyses", {
+    headers: headers,
+    method: 'post',
+    body: JSON.stringify({url: url, name: name, dream_id: dreamId})
+  }).then(res=>res.json()).then(json=>console.log(json))
 }
 
 export function startDreaming(){
