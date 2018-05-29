@@ -10,7 +10,7 @@ export function imageSearch(phrase, type="image"){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'0be01a966e0f427184a88ae10d76af15'
+        'Ocp-Apim-Subscription-Key':'81fe67ab45df4cddb22122581dc358f6'
       },
       method: 'get'
     })
@@ -32,7 +32,7 @@ export function analysisQuery(keyword){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        "Ocp-Apim-Subscription-Key":"0be01a966e0f427184a88ae10d76af15"
+        "Ocp-Apim-Subscription-Key":"81fe67ab45df4cddb22122581dc358f6"
       },
       method: 'get'
     })
