@@ -283,7 +283,7 @@ class CollageContainer extends React.Component {
                 <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.sepia}>Sepia</Button>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
+              <Grid.Row id='image-row'>
                 {this.displayImages()}
               </Grid.Row>
             </Grid>
