@@ -4,7 +4,7 @@
   background-color: #a1fcf9
 }
 
-.canvas {
+/* .canvas {
   background-color: #a1fcf9
 }
 
@@ -18,7 +18,7 @@ header {
 
 #collage {
   background-color: #a1fcf9
-}
+} */
 
 
 /* button:hover {
@@ -50,7 +50,7 @@ html, body {
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
@@ -63,6 +63,14 @@ html, body {
   font-size: large;
 }
 
+
+.left-frame {
+  height: 100%;
+  width: 50px;
+  float: left;
+  overflow: auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -73,22 +81,32 @@ html, body {
   width: 1000px;
   height: 800px;
   left: 20px;
+  /* clip-path: inset(0% 0% 0% 0%); */
+  /* border-style: solid; */
 }
+
+
 
 .link-div {
-  height: 500px;
+  /* height: 500px; */
+  width: 1000px;
+  margin: auto;
+  box-shadow: 0px 0px 80px 80px #cda5f3;
+  display:inline-block;
 }
 
+
 .header-photo {
-  height: 300px;
+  height: 200px;
   width: 100%;
 }
 
 .dream-div {
   width: 1000px;
-  /* margin: 0%; */
   margin: auto;
   background-color: #a1fcf9;
+  box-shadow: 0px 0px 80px 80px #cda5f3;
+
 }
 
 .preview {
@@ -151,8 +169,16 @@ html, body {
   left: -50%;
 }
 
+
 .box {
   margin: auto;
   width: 1200px;
   height: 800px;
+  /* content: url('./frame.png') */
+}
+
+/* font */
+
+.dream-font{
+  font: italic small-caps bold 45px/2 cursive;
 }

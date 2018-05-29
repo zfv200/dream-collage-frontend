@@ -244,46 +244,31 @@ class CollageContainer extends React.Component {
         <div id="collage">
           <div className="main-container">
             <div className="fixer-container">
-            <Grid columns={12}>
+            <Grid columns={7}>
               <Grid.Row>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthPlus}>width+</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.widthPlus}>width+</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.widthMinus}>width+</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.widthMinus}>width+</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightPlus}>height+</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.heightPlus}>height+</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.heightMinus}>height-</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.heightMinus}>height-</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.opacityPlus}>opacity+</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.opacityMinus}>opacity-</Button>
                 </Grid.Column>
                 <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</Button>
-                </Grid.Column>
-                <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurPlus}>blur+</Button>
-                </Grid.Column>
-                <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.blurMinus}>blur-</Button>
-                </Grid.Column>
-                <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.grayscale}>Black and White</Button>
-                </Grid.Column>
-                <Grid.Column>
-                  <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.invert}>Invert</Button>
-                </Grid.Column>
-                <Grid.Column>
-                <Button className="style-button" color='teal' style={this.state.buttonStyle} onClick={this.sepia}>Sepia</Button>
+                  <Button class="fluid ui button" color='teal' style={this.state.buttonStyle} onClick={this.roundCorners}>round corners</Button>
                 </Grid.Column>
               </Grid.Row>
-              <Grid.Row>
+              <Grid.Row id='image-row'>
                 {this.displayImages()}
               </Grid.Row>
             </Grid>

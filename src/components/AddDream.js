@@ -7,6 +7,7 @@ const AddDream = (props) => {
 
   return (
     <div>
+      <br></br><br></br>
       <Button color='teal' onClick={()=>props.startDreaming()}>Add Dream</Button>
     </div>
   )

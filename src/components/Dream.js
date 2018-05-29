@@ -1,5 +1,7 @@
 import React from 'react'
 import DreamLinks from './DreamLinks'
+import { Button } from 'semantic-ui-react'
+
 
 class Dream extends React.Component {
   state={
@@ -16,16 +18,18 @@ class Dream extends React.Component {
     console.log(this.props)
     return (
       <div>
-        {!this.state.interpreting ?
+        <br></br><br></br>
         <div className="dream-div">
           {(this.props.dream.collage && this.props.dream.collage.length)===undefined ?
           <img className="dream-image" src={this.props.dream.collage.image_url}/>
           : <img className="dream-image" src={this.props.dream.collage}/> }
-          <h1>{this.props.dream.content}</h1>
-          <br></br>
-          <button onClick={this.handleClick}>Interpret this dream!</button>
+          <h1 className="dream-font">{this.props.dream.content}</h1>
+          <br></br><br></br><br></br>
+          {this.state.interpreting ?
+          <DreamLinks handleClick={this.handleClick} links={this.props.dream.analyses}/>
+          : <Button color='teal' onClick={this.handleClick}>Interpret this dream!</Button> }
+        <br></br><br></br><br></br>
         </div>
-        : <DreamLinks handleClick={this.handleClick} links={this.props.dream.analyses}/> }
       </div>
     )
   }
