@@ -47,7 +47,6 @@ class CanvasContainer extends React.Component{
   }
 
   render(){
-    console.log(this.props.currentDreamId)
     return (
         <div className="canvas">
           <div className="box"></div>

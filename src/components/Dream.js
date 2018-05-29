@@ -24,12 +24,12 @@ class Dream extends React.Component {
           <img className="dream-image" src={this.props.dream.collage.image_url}/>
           : <img className="dream-image" src={this.props.dream.collage}/> }
           <h1 className="dream-font">{this.props.dream.content}</h1>
-          <br></br>
-        </div>
+          <br></br><br></br><br></br>
           {this.state.interpreting ?
           <DreamLinks handleClick={this.handleClick} links={this.props.dream.analyses}/>
           : <Button color='teal' onClick={this.handleClick}>Interpret this dream!</Button> }
-        <br></br><br></br>
+        <br></br><br></br><br></br>
+        </div>
       </div>
     )
   }
