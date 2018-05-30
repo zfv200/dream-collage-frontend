@@ -4,6 +4,7 @@ import { imageSearch, analysisSearch, finishCropping, analysisQuery } from '../a
 import ImageList from './ImageList'
 import CollageContainer from './CollageContainer'
 import { Button } from 'semantic-ui-react'
+let timeout = 0
 
 class CropperContainer extends React.Component{
 
@@ -17,7 +18,13 @@ class CropperContainer extends React.Component{
     (nextProps.analyzedContent && nextProps.analyzedContent.keyphrases && nextProps.analyzedContent.keyphrases[0]!=="") ?
       nextProps.analyzedContent.keyphrases.map(entry=>{
         if (this.props.images <= this.props.analyzedContent.length && this.props.images < 5) {
-          this.props.imageSearch(entry.phrase + " " + this.props.adjectives)
+          timeout += 1100
+          let imageSearch = this.props.imageSearch
+          let adjectives = this.props.adjectives
+          setTimeout(function(){
+            console.log("hi");
+            imageSearch(entry.phrase + " " + adjectives)
+          }, timeout)
       }
     }) : null
   }
