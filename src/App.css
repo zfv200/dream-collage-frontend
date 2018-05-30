@@ -39,6 +39,10 @@ html, body {
   background-color: #a1fcf9
 } */
 
+header {
+  box-shadow: 0px 0px 80px 8px #cda5f3;
+}
+
 .App {
   text-align: center;
 }
@@ -91,7 +95,7 @@ html, body {
   /* height: 500px; */
   width: 1000px;
   margin: auto;
-  box-shadow: 0px 0px 80px 80px #cda5f3;
+  box-shadow: 0px 0px 50px 50px #cda5f3;
   display:inline-block;
 }
 
@@ -105,12 +109,14 @@ html, body {
   width: 1000px;
   margin: auto;
   background-color: #a1fcf9;
-  box-shadow: 0px 0px 80px 80px #cda5f3;
+  box-shadow: 0px 0px 50px 50px #cda5f3;
 
 }
 
 .preview {
   width: 800px;
+  border-style: solid;
+  border-color: pink;
 }
 
 /* .image-clicked:active {
@@ -137,6 +143,7 @@ html, body {
   height: 200px;
   background-color: pink;
   font-size: 60px;
+  box-shadow: 0px 0px 80px 8px #cda5f3;
 }
 
 .text-input {
@@ -146,7 +153,28 @@ html, body {
   height: 80;
   background-color: pink;
   font-size: 60px;
+  box-shadow: 0px 0px 80px 8px #cda5f3;
 }
+
+input, textarea {
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 5px solid #DDDDDD;
+}
+
+input:focus, textarea:focus {
+  /* box-shadow: 0 0 5px rgba(81, 203, 238, 1); */
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+  box-shadow: 0px 0px 80px 8px #cda5f3;
+}
+
 
 /* other */
 
@@ -169,6 +197,9 @@ html, body {
   left: -50%;
 }
 
+.cropper-div {
+  box-shadow: 0px 0px 80px 8px #cda5f3;
+}
 
 .box {
   margin: auto;
@@ -177,8 +208,13 @@ html, body {
   /* content: url('./frame.png') */
 }
 
+button {
+  box-shadow: 0px 0px 80px 8px #cda5f3;
+}
+
 /* font */
 
 .dream-font{
   font: italic small-caps bold 45px/2 cursive;
+  color: #4b0082
 }

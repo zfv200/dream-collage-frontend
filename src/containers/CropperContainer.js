@@ -22,7 +22,6 @@ class CropperContainer extends React.Component{
           let imageSearch = this.props.imageSearch
           let adjectives = this.props.adjectives
           setTimeout(function(){
-            console.log("hi");
             imageSearch(entry.phrase + " " + adjectives)
           }, timeout)
       }
@@ -31,8 +30,13 @@ class CropperContainer extends React.Component{
 
   handleClick = () => {
     if (this.props.rosetteRes.keyphrases) {
+      let timer = 0
       this.props.rosetteRes.keyphrases.map(entry=>{
-        this.props.analysisQuery(entry.phrase + " meaning in dreams")
+        timer += 1100
+        let analysisQuery = this.props.analysisQuery
+        setTimeout(function(){
+          analysisQuery(entry.phrase + " meaning in dreams")
+        }, timer)
       })
     }
     this.props.finishCropping()

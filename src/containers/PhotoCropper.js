@@ -9,7 +9,8 @@ class PhotoCropper extends React.Component{
   state={
     imageData: null,
     croppedImage: null,
-    anyCrop: false
+    anyCrop: false,
+    style: null
   }
 
   _crop(){
@@ -29,7 +30,21 @@ class PhotoCropper extends React.Component{
 
   cropImage = () => {
     this.setState({
-      croppedImage: this.state.imageData
+      croppedImage: this.state.imageData,
+      style: {
+        borderColor: "#ffff66",
+        boxShadow: "0px 0px 8px 8px #ffff66"
+      }
+    })
+  }
+
+  saveImage = () => {
+    this.props.addCroppedImage(this.state.croppedImage)
+    this.setState({
+      style: {
+        borderColor: "#80ff80",
+        boxShadow: "0px 0px 8px 8px #80ff80"
+      }
     })
   }
 
@@ -40,22 +55,24 @@ class PhotoCropper extends React.Component{
         <Grid columns={2} divided>
           <Grid.Row>
             <Grid.Column>
-              <Cropper
-                ref='cropper'
-                src={this.props.image.url}
-                style={{height: 400, width: '100%'}}
-                aspectRatio={16 / 9}
-                guides={false}
-                crop={this._crop.bind(this)} />
+              <div className="cropper-div">
+                <Cropper
+                  ref='cropper'
+                  src={this.props.image.url}
+                  style={{height: 400, width: '100%'}}
+                  aspectRatio={16 / 9}
+                  guides={false}
+                  crop={this._crop.bind(this)} />
+              </div>
               <br></br>
 
               <Button color='teal' className="image-clicked" size="massive" fluid onClick={this.cropImage}>Crop</Button>
-              <Button color='teal' className="image-clicked" size="massive" fluid onClick={()=>this.props.addCroppedImage(this.state.croppedImage)}>Save Image</Button>
+              <Button color='teal' className="image-clicked" size="massive" fluid onClick={this.saveImage}>Save Image</Button>
             </Grid.Column>
             <Grid.Column>
               <br></br>
               <br></br>
-              <img className="preview" src={this.state.imageData} />
+              <img className="preview" style={this.state.style} src={this.state.imageData} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
