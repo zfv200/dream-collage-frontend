@@ -1,6 +1,6 @@
 const API_URL = "http://localhost:3000/api/v1"
 const headers = { "Content-Type":"application/json"}
-const google_api_key = "AIzaSyC3ANGllNjOOrepUiNw2gU7QZCWQzz95n4"
+const google_api_key = ""
 let imageId = 0
 
 
@@ -10,7 +10,7 @@ export function imageSearch(phrase, type="image"){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        'Ocp-Apim-Subscription-Key':'81fe67ab45df4cddb22122581dc358f6'
+        'Ocp-Apim-Subscription-Key':''
       },
       method: 'get'
     })
@@ -32,7 +32,7 @@ export function analysisQuery(keyword){
       headers: {
         "Content-Type":"application/json",
         "Accept":"application/json",
-        "Ocp-Apim-Subscription-Key":"81fe67ab45df4cddb22122581dc358f6"
+        "Ocp-Apim-Subscription-Key":""
       },
       method: 'get'
     })
@@ -66,7 +66,7 @@ export function analysisSearch(content){
   return (dispatch) => {
     fetch("https://cors-anywhere.herokuapp.com/https://api.rosette.com/rest/v1/topics", {
       headers: {
-        'X-RosetteAPI-Key':'027a59c5132d1fd52eedf6e798f52645',
+        'X-RosetteAPI-Key':'',
         'Content-Type':'application/json',
         'Accept':'application/json',
       },
