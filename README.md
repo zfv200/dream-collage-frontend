@@ -9,5 +9,5 @@ Set-Up:
 3.  Follow the instructions on the API ReadMe to create the database and provide the api endpoints/
 4.  Visit https://azure.microsoft.com/en-us/services/cognitive-services/bing-image-search-api/ and https://www.rosette.com/ to generate your own API keys for image/analysis generation. 
 5.  Plug keys in to code (here). 
-6.  CD into dream-collage-frontend and run npm install && npm start.
+6.  CD into dream-collage-frontend and run npm install && npm install html2canvas && npm install react-redux && npm start.
 7.  Create some dream collages!
